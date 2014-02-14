@@ -21,7 +21,8 @@ public class App {
 
 		CloseableHttpClient httpclient = HttpClients.createDefault();
         try {
-            HttpGet httpget = new HttpGet("http://news.qq.com/a/20140212/006485.htm");
+        	HttpGet httpget = new HttpGet("http://news.163.com/14/0214/02/9L0SL2S300014AEE.html#f=dfocus");
+//            HttpGet httpget = new HttpGet("http://news.ifeng.com/mainland/detail_2014_02/14/33821165_0.shtml");
 
             System.out.println("Executing request " + httpget.getRequestLine());
 
