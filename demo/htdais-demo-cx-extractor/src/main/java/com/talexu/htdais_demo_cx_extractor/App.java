@@ -45,8 +45,11 @@ public class App {
             System.out.println("----------------------------------------");
             System.out.println(responseBody);
             System.out.println("----------------------------------------");
-            String html = new TextExtract().parse(responseBody);
-            System.out.println(html);
+//            String html = new TextExtract().parse(responseBody);
+//            System.out.println(html);
+            
+            String remain = TextExtract.remainImgAndMainBody(responseBody);
+            System.out.println(remain);
             
         } finally {
             httpclient.close();

@@ -82,12 +82,40 @@ public class TextExtract {
 			Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
 	private static Pattern link = Pattern.compile("<a([^>]+)>(.+?)</a>",
 			Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
-//	private static Pattern angleBracketsPattern = Pattern.compile(
-//			"<(?!img\\s).*?>", Pattern.CASE_INSENSITIVE);
-	private static Pattern angleBracketsPattern = Pattern.compile(
-			"<.*?>", Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+	// private static Pattern angleBracketsPattern = Pattern.compile(
+	// "<(?!img\\s).*?>", Pattern.CASE_INSENSITIVE);
+	private static Pattern angleBracketsWithoutImgPattern = Pattern.compile(
+			"<(?!img\\s).*?>", Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+	private static Pattern angleBracketsPattern = Pattern.compile("<.*?>",
+			Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
 	private static Pattern brPattern = Pattern.compile("\r\n",
 			Pattern.CASE_INSENSITIVE);
+	private static Pattern spacesPattern = Pattern.compile("\\s+",
+			Pattern.CASE_INSENSITIVE | Pattern.DOTALL);
+
+	public static String remainImgAndMainBody(String source) {
+		source = doctypePattern.matcher(source).replaceAll("");
+		source = commentPattern.matcher(source).replaceAll("");
+		source = jsPattern.matcher(source).replaceAll("");
+		source = cssPattern.matcher(source).replaceAll("");
+		source = specialCharPattern.matcher(source).replaceAll(" ");
+		// 剔除连续成片的超链接文本（认为是，广告或噪音）,超链接多藏于span中
+		source = spanBeginPattern.matcher(source).replaceAll("");
+		source = spanEndPattern.matcher(source).replaceAll("");
+
+		int len = source.length();
+		while ((source = link.matcher(source).replaceAll("")).length() != len) {
+			len = source.length();
+		}
+
+		// 防止html中在<>中包括大于号的判断
+		source = angleBracketsWithoutImgPattern.matcher(source).replaceAll("");
+		source = spacesPattern.matcher(source).replaceAll(
+				System.getProperty("line.separator"));
+
+		return source;
+
+	}
 
 	private static String preProcess(String source) {
 		source = doctypePattern.matcher(source).replaceAll("");
@@ -129,7 +157,7 @@ public class TextExtract {
 			if (lines.get(i).length() == 0) {
 				empty++;
 			}
-			
+
 			int wordsNum = 0;
 			for (int j = i; j < i + blocksWidth; j++) {
 				lines.set(j, lines.get(j).replaceAll("\\s+", ""));
