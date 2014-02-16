@@ -1,0 +1,185 @@
+--> regression-out0.arff
+moa.classifiers.trees.FIMTDD
+
+Index
+  100
+Votes
+  0: 55948.38383838
+Measurements
+  classified instances: 99
+  mean absolute error: 34628.12606101
+  root mean squared error: 65078.43264825
+Model measurements
+  model training instances: 99
+  tree size (nodes): 1
+  tree size (leaves): 1
+  active learning leaves: 1
+  tree depth: 0
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  200
+Votes
+  0: 47263.67336683
+Measurements
+  classified instances: 199
+  mean absolute error: 31761.42175101
+  root mean squared error: 52002.95041982
+Model measurements
+  model training instances: 199
+  tree size (nodes): 1
+  tree size (leaves): 1
+  active learning leaves: 1
+  tree depth: 0
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  300
+Votes
+  0: 48512.1
+Measurements
+  classified instances: 299
+  mean absolute error: 31312.66908848
+  root mean squared error: 50606.00809883
+Model measurements
+  model training instances: 299
+  tree size (nodes): 3
+  tree size (leaves): 2
+  active learning leaves: 2
+  tree depth: 1
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  400
+Votes
+  0: 51787.93478261
+Measurements
+  classified instances: 399
+  mean absolute error: 32901.30569602
+  root mean squared error: 53569.26832628
+Model measurements
+  model training instances: 399
+  tree size (nodes): 3
+  tree size (leaves): 2
+  active learning leaves: 2
+  tree depth: 1
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  500
+Votes
+  0: 46301.18181818
+Measurements
+  classified instances: 499
+  mean absolute error: 31942.56561948
+  root mean squared error: 51461.79051855
+Model measurements
+  model training instances: 499
+  tree size (nodes): 5
+  tree size (leaves): 3
+  active learning leaves: 3
+  tree depth: 2
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  600
+Votes
+  0: 47771.62941176
+Measurements
+  classified instances: 599
+  mean absolute error: 31423.00972556
+  root mean squared error: 52461.9981661
+Model measurements
+  model training instances: 599
+  tree size (nodes): 5
+  tree size (leaves): 3
+  active learning leaves: 3
+  tree depth: 2
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  700
+Votes
+  0: 27745.27272727
+Measurements
+  classified instances: 699
+  mean absolute error: 30945.66999791
+  root mean squared error: 50762.58530945
+Model measurements
+  model training instances: 699
+  tree size (nodes): 7
+  tree size (leaves): 4
+  active learning leaves: 4
+  tree depth: 3
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  800
+Votes
+  0: 51015.2
+Measurements
+  classified instances: 799
+  mean absolute error: 30973.49078563
+  root mean squared error: 50200.15409173
+Model measurements
+  model training instances: 799
+  tree size (nodes): 7
+  tree size (leaves): 4
+  active learning leaves: 4
+  tree depth: 3
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  900
+Votes
+  0: 46366.56410256
+Measurements
+  classified instances: 899
+  mean absolute error: 30669.25725472
+  root mean squared error: 48959.19471906
+Model measurements
+  model training instances: 899
+  tree size (nodes): 9
+  tree size (leaves): 5
+  active learning leaves: 5
+  tree depth: 4
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+Index
+  1000
+Votes
+  0: 31327.8
+Measurements
+  classified instances: 999
+  mean absolute error: 30510.20083603
+  root mean squared error: 48400.83124722
+Model measurements
+  model training instances: 999
+  tree size (nodes): 9
+  tree size (leaves): 5
+  active learning leaves: 5
+  tree depth: 4
+  active leaf byte size estimate: 0
+  inactive leaf byte size estimate: 0
+  byte size estimate overhead: 1
+
+
+

@@ -1,0 +1,115 @@
+--> regression-out0.arff
+moa.classifiers.rules.AMRules
+
+Index
+  100
+Votes
+  0: 55948.38383838
+Measurements
+  classified instances: 99
+  mean absolute error: 34628.12606101
+  root mean squared error: 65078.43264825
+Model measurements
+  model training instances: 99
+
+Index
+  200
+Votes
+  0: 47263.67336683
+Measurements
+  classified instances: 199
+  mean absolute error: 31761.42175101
+  root mean squared error: 52002.95041982
+Model measurements
+  model training instances: 199
+
+Index
+  300
+Votes
+  0: 50376.65656566
+Measurements
+  classified instances: 299
+  mean absolute error: 31244.11775292
+  root mean squared error: 50582.10890601
+Model measurements
+  model training instances: 299
+
+Index
+  400
+Votes
+  0: 54218.49246231
+Measurements
+  classified instances: 399
+  mean absolute error: 33261.16816304
+  root mean squared error: 53757.25849474
+Model measurements
+  model training instances: 399
+
+Index
+  500
+Votes
+  0: 36402.58108108
+Measurements
+  classified instances: 499
+  mean absolute error: 32098.89133905
+  root mean squared error: 51262.14905706
+Model measurements
+  model training instances: 499
+
+Index
+  600
+Votes
+  0: 37201.76923077
+Measurements
+  classified instances: 599
+  mean absolute error: 30551.53122804
+  root mean squared error: 50724.19439868
+Model measurements
+  model training instances: 599
+
+Index
+  700
+Votes
+  0: 33792.71428571
+Measurements
+  classified instances: 699
+  mean absolute error: 29160.04228203
+  root mean squared error: 48141.37695395
+Model measurements
+  model training instances: 699
+
+Index
+  800
+Votes
+  0: 32255.70588235
+Measurements
+  classified instances: 799
+  mean absolute error: 28565.9219617
+  root mean squared error: 46917.61536144
+Model measurements
+  model training instances: 799
+
+Index
+  900
+Votes
+  0: 86036.96703297
+Measurements
+  classified instances: 899
+  mean absolute error: 27519.9414388
+  root mean squared error: 45137.56507419
+Model measurements
+  model training instances: 899
+
+Index
+  1000
+Votes
+  0: 25057.70967742
+Measurements
+  classified instances: 999
+  mean absolute error: 27103.97283673
+  root mean squared error: 44263.60620929
+Model measurements
+  model training instances: 999
+
+
+
