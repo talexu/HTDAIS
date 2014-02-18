@@ -27,99 +27,58 @@ import org.apache.lucene.search.highlight.WeightedSpanTerm;
  * 
  */
 public class App {
+	static TextExtractorDecoratorOfImage te = new TextExtractorDecoratorOfImage(
+			new TextExtractorDecoratorFormat(new TextExtractor()));
+
 	public static void main(String[] args) {
+
 		testNew("http://news.163.com/14/0214/02/9L0SL2S300014AEE.html#f=dfocus");
 		testNew("http://news.163.com/14/0215/04/9L3KAECP0001124J.html");
 		testNew("http://news.163.com/14/0215/13/9L4JH42I0001124J.html");
 		testNew("http://news.163.com/14/0215/20/9L5C8JR100014JB6.html");
 		testNew("http://world.163.com/14/0215/08/9L433CJ80001121M.html");
 	}
-	
+
 	private static void testNew(String uri) {
 		System.out.println(uri);
-		TextExtract textExtract = new TextExtract();
+		te.extractURL(uri);
+		String title = te.getTitle();
+		String mainBody = te.getText();
+
+		System.out.println("标题: " + te.getTitle());
+		System.out.println("----------正文----------");
+		System.out.println(mainBody);
+
+		KeyWordComputer kwc = new KeyWordComputer(5);
+		Collection<Keyword> keywords = kwc.computeArticleTfidf(title, mainBody);
+		System.out.println("----------关键词----------");
+		for (Keyword keyword : keywords) {
+			System.out.print(keyword + ", ");
+		}
+		System.out.println();
+
+		System.out.println("----------摘要----------");
+		WeightedSpanTerm[] weightedSpanTerms = new WeightedSpanTerm[keywords
+				.size()];
+		int i = 0;
+		for (Keyword keyword : keywords) {
+			weightedSpanTerms[i++] = new WeightedSpanTerm(1, keyword.getName());
+		}
+		QueryScorer scorer = new QueryScorer(weightedSpanTerms);
+		Highlighter highlighter = new Highlighter(new SimpleHTMLFormatter("",
+				""), scorer);
+		highlighter.setTextFragmenter(new SimpleFragmenter(200));
+
+		Analyzer analyzer = new AnsjAnalysis(true);
 		try {
-			String html = get(uri);
-			String title = textExtract.getTitle(html);
-			String mainBody = textExtract.parse(html);
-
-			System.out.println("标题: " + title);
-			System.out.println("----------正文----------");
-			System.out.println(mainBody);
-
-			KeyWordComputer kwc = new KeyWordComputer(5);
-			Collection<Keyword> keywords = kwc.computeArticleTfidf(title,
-					mainBody);
-			System.out.println("----------关键词----------");
-			for (Keyword keyword : keywords) {
-				System.out.print(keyword + ", ");
-			}
-			System.out.println();
-
-			System.out.println("----------摘要----------");
-			WeightedSpanTerm[] weightedSpanTerms = new WeightedSpanTerm[keywords
-					.size()];
-			int i = 0;
-			for (Keyword keyword : keywords) {
-				weightedSpanTerms[i++] = new WeightedSpanTerm(1,
-						keyword.getName());
-			}
-			QueryScorer scorer = new QueryScorer(weightedSpanTerms);
-			Highlighter highlighter = new Highlighter(new SimpleHTMLFormatter(
-					"", ""), scorer);
-			highlighter.setTextFragmenter(new SimpleFragmenter(200));
-
-			Analyzer analyzer = new AnsjAnalysis(true);
-			try {
-				System.out.println(highlighter.getBestFragment(analyzer,
-						"myfield", mainBody));
-			} catch (IOException | InvalidTokenOffsetsException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-
-			System.out.println("----------图片----------");
-			highlighter.setTextFragmenter(new SimpleFragmenter(mainBody
-					.length()));
-			try {
-				String imgSrc = textExtract.getImgSrc(highlighter
-						.getBestFragment(analyzer, "myfield",
-								textExtract.getImgAndText(html)));
-				System.out.println(imgSrc);
-			} catch (IOException | InvalidTokenOffsetsException e1) {
-				// TODO Auto-generated catch block
-				e1.printStackTrace();
-			}
-		} catch (IOException e) {
+			System.out.println(highlighter.getBestFragment(analyzer, "myfield",
+					mainBody));
+		} catch (IOException | InvalidTokenOffsetsException e1) {
 			// TODO Auto-generated catch block
-			e.printStackTrace();
+			e1.printStackTrace();
 		}
-	}
 
-	private static String get(String uri) throws ClientProtocolException,
-			IOException {
-		CloseableHttpClient httpclient = HttpClients.createDefault();
-		try {
-			HttpGet httpget = new HttpGet(uri);
-			// Create a custom response handler
-			ResponseHandler<String> responseHandler = new ResponseHandler<String>() {
-				public String handleResponse(final HttpResponse response)
-						throws ClientProtocolException, IOException {
-					int status = response.getStatusLine().getStatusCode();
-					if (status >= 200 && status < 300) {
-						HttpEntity entity = response.getEntity();
-						return entity != null ? EntityUtils.toString(entity)
-								: null;
-					} else {
-						throw new ClientProtocolException(
-								"Unexpected response status: " + status);
-					}
-				}
-
-			};
-			return httpclient.execute(httpget, responseHandler);
-		} finally {
-			httpclient.close();
-		}
+		System.out.println("----------图片----------");
+		System.out.println(te.getImage());
 	}
 }
