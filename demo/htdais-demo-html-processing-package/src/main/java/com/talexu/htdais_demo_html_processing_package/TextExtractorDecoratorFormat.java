@@ -9,6 +9,6 @@ public class TextExtractorDecoratorFormat extends TextExtractorDecorator {
 
 	@Override
 	public String getText() {
-		return _textExtractor.getText().replaceAll("\\s+", "\n").trim();
+		return super.getText().replaceAll("\\s+", "\n").trim();
 	}
 }
