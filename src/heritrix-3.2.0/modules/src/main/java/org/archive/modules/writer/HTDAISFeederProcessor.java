@@ -20,7 +20,7 @@ import org.archive.modules.Processor;
 
 public class HTDAISFeederProcessor extends Processor {
 
-	private static int count = 10;
+	private static int count = 1;
 	private static boolean flag = true;
 
 	@Override
@@ -57,43 +57,41 @@ public class HTDAISFeederProcessor extends Processor {
 		// IOUtils.closeQuietly(fos);
 		// }
 
-		File outputFile = new File(
-				"/Users/bjutales/Downloads/TestCrawl/test.txt");
-		if (flag) {
-			RecordingInputStream recis = uri.getRecorder().getRecordedInput();
-			if (0L == recis.getResponseContentLength()) {
-				return;
-			}
-			try {
-				writeToPath(recis, outputFile);
+		File outputFile = new File("/Users/bjutales/Downloads/TestCrawl/"
+				+ count++ + ".txt");
+		RecordingInputStream recis = uri.getRecorder().getRecordedInput();
+		if (0L == recis.getResponseContentLength()) {
+			return;
+		}
+		try {
+			writeToPath(recis, outputFile);
 
-			} catch (IOException ioException) {
-				System.err.println("File Error!");
-			} finally {
-				System.out.println("Mission complete!");
-				flag = false;
-			}
+		} catch (IOException ioException) {
+			System.err.println("File Error!");
+		} finally {
+			System.out.println("Mission complete!");
+			flag = false;
 		}
 	}
 
 	private void writeToPath(RecordingInputStream recis, File dest)
-	        throws IOException {
-	        File tf = new File (dest.getPath() + "N");
-	        ReplayInputStream replayis = null;
-	        FileOutputStream fos = null;
-	        try {
-	            replayis = recis.getMessageBodyReplayInputStream();
-	            fos = new FileOutputStream(tf);
+			throws IOException {
+		File tf = new File(dest.getPath() + "N");
+		ReplayInputStream replayis = null;
+		FileOutputStream fos = null;
+		try {
+			replayis = recis.getMessageBodyReplayInputStream();
+			fos = new FileOutputStream(tf);
 
-	            replayis.readFullyTo(fos);
-	        } finally {
-	            IOUtils.closeQuietly(replayis);
-	            IOUtils.closeQuietly(fos);
-	        }
-	        if (!tf.renameTo(dest)) {
-	            throw new IOException("Can not rename " + tf.getAbsolutePath()
-	                                  + " to " + dest.getAbsolutePath());
-	        }
+			replayis.readFullyTo(fos);
+		} finally {
+			IOUtils.closeQuietly(replayis);
+			IOUtils.closeQuietly(fos);
+		}
+		if (!tf.renameTo(dest)) {
+			throw new IOException("Can not rename " + tf.getAbsolutePath()
+					+ " to " + dest.getAbsolutePath());
+		}
 
-	    }
+	}
 }
