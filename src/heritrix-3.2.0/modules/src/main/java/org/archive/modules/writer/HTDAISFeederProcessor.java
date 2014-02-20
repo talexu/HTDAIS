@@ -58,7 +58,7 @@ public class HTDAISFeederProcessor extends Processor {
 		// }
 
 		File outputFile = new File("/Users/bjutales/Downloads/TestCrawl/"
-				+ count++ + ".txt");
+				+ count++ + " - " + uri.getFetchStatus() + ".txt");
 		RecordingInputStream recis = uri.getRecorder().getRecordedInput();
 		if (0L == recis.getResponseContentLength()) {
 			return;
