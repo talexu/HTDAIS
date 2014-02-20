@@ -21,6 +21,7 @@ import org.archive.modules.Processor;
 public class HTDAISFeederProcessor extends Processor {
 
 	private static int count = 10;
+	private static boolean flag = true;
 
 	@Override
 	protected boolean shouldProcess(CrawlURI uri) {
@@ -58,26 +59,41 @@ public class HTDAISFeederProcessor extends Processor {
 
 		File outputFile = new File(
 				"/Users/bjutales/Downloads/TestCrawl/test.txt");
-		PrintWriter out = null;
-		if (count-- > 0) {
-
+		if (flag) {
+			RecordingInputStream recis = uri.getRecorder().getRecordedInput();
+			if (0L == recis.getResponseContentLength()) {
+				return;
+			}
 			try {
-
-				out = new PrintWriter(new BufferedWriter(
-						new OutputStreamWriter(
-								new FileOutputStream(outputFile), "UTF-8")));
-
-				out.println(count + ": " + uri.getURI());
+				writeToPath(recis, outputFile);
 
 			} catch (IOException ioException) {
 				System.err.println("File Error!");
 			} finally {
 				System.out.println("Mission complete!");
+				flag = false;
 			}
-		}
-		if (count == 0) {
-			out.close();
 		}
 	}
 
+	private void writeToPath(RecordingInputStream recis, File dest)
+	        throws IOException {
+	        File tf = new File (dest.getPath() + "N");
+	        ReplayInputStream replayis = null;
+	        FileOutputStream fos = null;
+	        try {
+	            replayis = recis.getMessageBodyReplayInputStream();
+	            fos = new FileOutputStream(tf);
+
+	            replayis.readFullyTo(fos);
+	        } finally {
+	            IOUtils.closeQuietly(replayis);
+	            IOUtils.closeQuietly(fos);
+	        }
+	        if (!tf.renameTo(dest)) {
+	            throw new IOException("Can not rename " + tf.getAbsolutePath()
+	                                  + " to " + dest.getAbsolutePath());
+	        }
+
+	    }
 }
