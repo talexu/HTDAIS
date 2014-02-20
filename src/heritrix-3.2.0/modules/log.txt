@@ -1,0 +1,111 @@
+0      2014-01-10 22:35:08,974 WARN  [main] jetty.Server.warn (Slf4jLog.java:76) - setDebugEnabled not implemented
+7046   2014-01-10 22:35:16,020 WARN  [622466907@qtp-1336956757-4] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7121   2014-01-10 22:35:16,095 WARN  [622466907@qtp-1336956757-4] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7181   2014-01-10 22:35:16,155 WARN  [1500159980@qtp-1336956757-5] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7223   2014-01-10 22:35:16,197 WARN  [622466907@qtp-1336956757-4] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7253   2014-01-10 22:35:16,227 WARN  [1500159980@qtp-1336956757-5] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7287   2014-01-10 22:35:16,261 WARN  [622466907@qtp-1336956757-4] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7313   2014-01-10 22:35:16,287 WARN  [1500159980@qtp-1336956757-5] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7349   2014-01-10 22:35:16,323 WARN  [622466907@qtp-1336956757-4] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7374   2014-01-10 22:35:16,348 WARN  [1500159980@qtp-1336956757-5] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
+7397   2014-01-10 22:35:16,371 WARN  [622466907@qtp-1336956757-4] mortbay.log.warn (Slf4jLog.java:89) - EXCEPTION 
+javax.net.ssl.SSLHandshakeException: Received fatal alert: certificate_unknown
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:192)
+	at sun.security.ssl.Alerts.getSSLException(Alerts.java:154)
+	at sun.security.ssl.SSLSocketImpl.recvAlert(SSLSocketImpl.java:1943)
+	at sun.security.ssl.SSLSocketImpl.readRecord(SSLSocketImpl.java:1059)
+	at sun.security.ssl.SSLSocketImpl.performInitialHandshake(SSLSocketImpl.java:1294)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1321)
+	at sun.security.ssl.SSLSocketImpl.startHandshake(SSLSocketImpl.java:1305)
+	at org.mortbay.jetty.security.SslSocketConnector$SslConnection.run(SslSocketConnector.java:708)
+	at org.mortbay.thread.QueuedThreadPool$PoolThread.run(QueuedThreadPool.java:582)
