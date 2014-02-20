@@ -25,11 +25,11 @@ public class HTDAISFeederProcessor extends Processor {
 
 	@Override
 	protected boolean shouldProcess(CrawlURI uri) {
-		// if (uri.getContentType().contains("text/html")) {
+		if (uri.getContentType().contains("text/html")) {
+			return true;
+		}
+		return false;
 		// return true;
-		// }
-		// return false;
-		return true;
 	}
 
 	@Override
