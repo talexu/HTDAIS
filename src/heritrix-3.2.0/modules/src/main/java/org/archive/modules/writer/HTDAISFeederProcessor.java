@@ -25,7 +25,8 @@ public class HTDAISFeederProcessor extends Processor {
 
 	@Override
 	protected boolean shouldProcess(CrawlURI uri) {
-		if (uri.getContentType().contains("text/html")) {
+		if (uri.getContentType().contains("text/html")
+				&& uri.getFetchStatus() == 200) {
 			return true;
 		}
 		return false;
@@ -58,7 +59,7 @@ public class HTDAISFeederProcessor extends Processor {
 		// }
 
 		File outputFile = new File("/Users/bjutales/Downloads/TestCrawl/"
-				+ count++ + " - " + uri.getFetchStatus() + ".txt");
+				+ count++ + ".txt");
 		RecordingInputStream recis = uri.getRecorder().getRecordedInput();
 		if (0L == recis.getResponseContentLength()) {
 			return;
