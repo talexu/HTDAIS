@@ -32,7 +32,7 @@ public class App {
 
 	public static void main(String[] args) {
 
-		testNew("http://news.163.com/14/0214/02/9L0SL2S300014AEE.html#f=dfocus");
+//		testNew("http://news.163.com/14/0214/02/9L0SL2S300014AEE.html#f=dfocus");
 		testNew("http://news.163.com/14/0215/04/9L3KAECP0001124J.html");
 		testNew("http://news.163.com/14/0215/13/9L4JH42I0001124J.html");
 		testNew("http://news.163.com/14/0215/20/9L5C8JR100014JB6.html");

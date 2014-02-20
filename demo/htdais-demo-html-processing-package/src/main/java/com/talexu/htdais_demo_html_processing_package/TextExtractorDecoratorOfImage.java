@@ -29,7 +29,7 @@ public class TextExtractorDecoratorOfImage extends TextExtractorDecorator {
 		if (mainBodyWithImg != null) {
 			Matcher matcher = imgSrcPattern.matcher(mainBodyWithImg);
 			if (matcher != null && matcher.find()) {
-				_image = matcher.group(1);
+				_image = matcher.group(1).trim();
 			}
 		}
 	}
