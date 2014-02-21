@@ -252,10 +252,10 @@ implements Serializable,
     protected final static Logger LOGGER =
         Logger.getLogger(CrawlController.class.getName());
 
-    private transient ToePool toePool;
+    protected transient ToePool toePool;
 
     // emergency reserve of memory to allow some progress/reporting after OOM
-    private transient LinkedList<byte[]> reserveMemory;
+    protected transient LinkedList<byte[]> reserveMemory;
     private static final int RESERVE_BLOCKS = 1;
     private static final int RESERVE_BLOCK_SIZE = 12*1024*1024; // 12 MB
 
