@@ -249,7 +249,7 @@ implements Serializable,
      *
      * They appear on console.
      */
-    private final static Logger LOGGER =
+    protected final static Logger LOGGER =
         Logger.getLogger(CrawlController.class.getName());
 
     private transient ToePool toePool;
@@ -262,14 +262,14 @@ implements Serializable,
     /**
      * Crawl exit status.
      */
-    private transient CrawlStatus sExit = CrawlStatus.CREATED;
+    protected transient CrawlStatus sExit = CrawlStatus.CREATED;
 
     public static enum State {
         NASCENT, RUNNING, EMPTY, PAUSED, PAUSING, 
         STOPPING, FINISHED, PREPARING 
     }
 
-    transient private State state = State.NASCENT;
+    transient protected State state = State.NASCENT;
     
     public CrawlController() {
     }
