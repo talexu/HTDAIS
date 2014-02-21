@@ -685,6 +685,10 @@ public class CrawlJob implements Comparable<CrawlJob>, ApplicationListener<Appli
                 if (needTeardown) {
                     doTeardown();
                 }
+                
+                // test for infinite job
+                validateConfiguration();
+                
             }
         }
         
