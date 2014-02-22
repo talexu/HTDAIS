@@ -258,27 +258,27 @@ implements Serializable,
      *
      * They appear on console.
      */
-    protected final static Logger LOGGER =
+    private final static Logger LOGGER =
         Logger.getLogger(CrawlController.class.getName());
 
-    protected transient ToePool toePool;
+    private transient ToePool toePool;
 
     // emergency reserve of memory to allow some progress/reporting after OOM
-    protected transient LinkedList<byte[]> reserveMemory;
+    private transient LinkedList<byte[]> reserveMemory;
     private static final int RESERVE_BLOCKS = 1;
     private static final int RESERVE_BLOCK_SIZE = 12*1024*1024; // 12 MB
 
     /**
      * Crawl exit status.
      */
-    protected transient CrawlStatus sExit = CrawlStatus.CREATED;
+    private transient CrawlStatus sExit = CrawlStatus.CREATED;
 
     public static enum State {
         NASCENT, RUNNING, EMPTY, PAUSED, PAUSING, 
         STOPPING, FINISHED, PREPARING 
     }
 
-    transient protected State state = State.NASCENT;
+    transient private State state = State.NASCENT;
     
     public CrawlController() {
     }

@@ -686,7 +686,7 @@ public class CrawlJob implements Comparable<CrawlJob>, ApplicationListener<Appli
                     doTeardown();
                 }
                 
-				CrawlController cc = getCrawlController();
+                CrawlController cc = getCrawlController();
 				if (cc != null
 						&& cc.getCrawlExitStatus() != CrawlStatus.ABORTED
 						&& cc.getAutoRecrawl()) {
