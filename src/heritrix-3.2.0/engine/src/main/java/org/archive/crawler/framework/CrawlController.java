@@ -201,11 +201,20 @@ implements Serializable,
     public void setRunWhileEmpty(boolean runWhileEmpty) {
         this.runWhileEmpty = runWhileEmpty;
     }
+    
+    /** whether infinite crawl */
+    protected boolean autoRecrawl = false; 
+    public boolean getAutoRecrawl() {
+        return autoRecrawl;
+    }
+    public void setAutoRecrawl(boolean autoRecrawl) {
+        this.autoRecrawl = autoRecrawl;
+    }
 
     /** whether to pause at crawl start */
     protected boolean pauseAtStart = true; 
     public boolean getPauseAtStart() {
-        return pauseAtStart;
+        return !autoRecrawl && pauseAtStart;
     }
     public void setPauseAtStart(boolean pauseAtStart) {
         this.pauseAtStart = pauseAtStart;
