@@ -41,6 +41,7 @@ public class InfiniteBdbFrontier extends BdbFrontier {
 	 * 
 	 * @see org.archive.crawler.framework.Frontier#isEmpty()
 	 */
+	@Override
 	public boolean isEmpty() {
 		boolean empty = super.isEmpty();
 		if (empty && emptyQuery.getAndAdd(1) == 0) {
