@@ -55,4 +55,21 @@ public class InfiniteBdbFrontier extends BdbFrontier {
 		}
 		return empty;
 	}
+	
+	/**
+     * Return the next CrawlURI eligible to be processed (and presumably
+     * visited/fetched) by a a worker thread.
+     *
+     * Relies on the readyClassQueues having been loaded with
+     * any work queues that are eligible to provide a URI. 
+     *
+     * @return next CrawlURI eligible to be processed, or null if none available
+     *
+     * @see org.archive.crawler.framework.Frontier#next()
+     */
+	@Override
+    protected CrawlURI findEligibleURI() {
+    	forceWakeQueues();
+    	return super.findEligibleURI();
+    }
 }
