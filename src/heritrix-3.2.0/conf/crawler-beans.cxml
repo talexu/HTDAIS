@@ -54,7 +54,25 @@ metadata.description=Basic crawl starting with useful defaults
     <prop key="seeds.textSource.value">
 
 # URLS HERE
-http://news.sina.com.cn
+http://news.sina.com.cn/
+http://news.ifeng.com/
+http://news.qq.com/
+http://news.sohu.com/
+http://news.163.com/
+http://www.xinhuanet.com/
+http://news.cntv.cn/
+http://www.chinanews.com/
+http://www.huanqiu.com/
+http://www.zaobao.com/
+http://www.cankaoxiaoxi.com/
+http://www.chinamil.com.cn/
+http://www.takungpao.com/
+http://www.china.com/
+http://www.wenweipo.com/
+http://www.legaldaily.com.cn/
+http://www.inewsweek.cn/
+http://www.yangtse.com/
+http://www.gmw.cn/
 
     </prop>
    </props>
@@ -397,7 +415,7 @@ http://news.sina.com.cn
    class="org.archive.crawler.framework.CrawlController">
   <!-- <property name="maxToeThreads" value="25" /> -->
   <!-- <property name="pauseAtStart" value="true" /> -->
-  <!-- <property name="runWhileEmpty" value="false" /> -->
+  <property name="runWhileEmpty" value="true" />
   <!-- <property name="recorderInBufferBytes" value="524288" /> -->
   <!-- <property name="recorderOutBufferBytes" value="16384" /> -->
   <!-- <property name="scratchDir" value="scratch" /> -->
@@ -406,6 +424,7 @@ http://news.sina.com.cn
  <!-- FRONTIER: Record of all URIs discovered and queued-for-collection -->
  <bean id="frontier" 
    class="org.archive.crawler.frontier.InfiniteBdbFrontier">
+  <!-- <property name="delay" value="500" /> -->
   <!-- <property name="queueTotalBudget" value="-1" /> -->
   <!-- <property name="balanceReplenishAmount" value="3000" /> -->
   <!-- <property name="errorPenaltyAmount" value="100" /> -->
