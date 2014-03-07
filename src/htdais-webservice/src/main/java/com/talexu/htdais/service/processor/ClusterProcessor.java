@@ -1,11 +1,13 @@
 package com.talexu.htdais.service.processor;
 
+import java.util.Collection;
+
 import moa.options.FloatOption;
 
 import com.talexu.htdais.domain.QuantizedNews;
 import com.talexu.htdais.service.cluster.HtdaisClusterer;
 
-public class ClusterProcessor extends NewsProcessor {
+public class ClusterProcessor extends NewsProcessor implements ClusterMatcher {
 
 	private HtdaisClusterer htdaisClusterer;
 	private float eps = 0.02f;
@@ -40,7 +42,7 @@ public class ClusterProcessor extends NewsProcessor {
 
 	public ClusterProcessor(NewsProcessor newsProcessor) {
 		super(newsProcessor);
-		InitClusterer();
+		initClusterer();
 	}
 
 	public ClusterProcessor(NewsProcessor newsProcessor, float eps, int min,
@@ -50,10 +52,10 @@ public class ClusterProcessor extends NewsProcessor {
 		setEps(eps);
 		setMinPoints(min);
 		setInitPoints(init);
-		InitClusterer();
+		initClusterer();
 	}
 
-	private void InitClusterer() {
+	protected void initClusterer() {
 		htdaisClusterer = new HtdaisClusterer();
 		htdaisClusterer.epsilonOption = new FloatOption("epsilon", 'e',
 				"Defines the epsilon neighbourhood", getEps(), epsMin, epsMax);
@@ -65,8 +67,21 @@ public class ClusterProcessor extends NewsProcessor {
 	}
 
 	@Override
-	public void Process(QuantizedNews quantizedNews) {
+	public void process(QuantizedNews quantizedNews) {
 		// TODO
-		super.Process(quantizedNews);
+		super.process(quantizedNews);
+	}
+
+	@Override
+	public QuantizedNews matchCluster(QuantizedNews quantizedNews) {
+		// TODO Auto-generated method stub
+		return quantizedNews;
+	}
+
+	@Override
+	public Collection<QuantizedNews> matchCluster(
+			Collection<QuantizedNews> quantizedNews) {
+		// TODO Auto-generated method stub
+		return quantizedNews;
 	}
 }

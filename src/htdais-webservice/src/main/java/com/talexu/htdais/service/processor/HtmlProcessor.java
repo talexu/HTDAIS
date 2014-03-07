@@ -10,8 +10,8 @@ public class HtmlProcessor extends NewsProcessor {
 	}
 
 	@Override
-	public void Process(QuantizedNews quantizedNews) {
+	public void process(QuantizedNews quantizedNews) {
 		// TODO
-		super.Process(quantizedNews);
+		super.process(quantizedNews);
 	}
 }
