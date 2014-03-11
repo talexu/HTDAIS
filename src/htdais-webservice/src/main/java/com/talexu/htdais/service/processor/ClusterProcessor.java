@@ -1,13 +1,14 @@
 package com.talexu.htdais.service.processor;
 
-import java.util.Collection;
+import java.util.List;
 
 import moa.options.FloatOption;
 
 import com.talexu.htdais.domain.QuantizedNews;
 import com.talexu.htdais.service.cluster.HtdaisClusterer;
 
-public class ClusterProcessor extends NewsProcessor implements ClusterMatcher {
+public class ClusterProcessor extends NewsProcessorDecorator implements
+		ClusterMatcher {
 
 	private HtdaisClusterer htdaisClusterer;
 	private float eps = 0.02f;
@@ -79,8 +80,7 @@ public class ClusterProcessor extends NewsProcessor implements ClusterMatcher {
 	}
 
 	@Override
-	public Collection<QuantizedNews> matchCluster(
-			Collection<QuantizedNews> quantizedNews) {
+	public List<QuantizedNews> matchCluster(List<QuantizedNews> quantizedNews) {
 		// TODO Auto-generated method stub
 		return quantizedNews;
 	}

@@ -2,7 +2,7 @@ package com.talexu.htdais.service.processor;
 
 import com.talexu.htdais.domain.QuantizedNews;
 
-public class VectorProcessor extends NewsProcessor {
+public class VectorProcessor extends NewsProcessorDecorator {
 
 	public VectorProcessor(NewsProcessor newsProcessor) {
 		super(newsProcessor);

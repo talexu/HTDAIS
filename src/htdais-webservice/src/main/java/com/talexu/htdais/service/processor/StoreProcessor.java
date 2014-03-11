@@ -2,9 +2,9 @@ package com.talexu.htdais.service.processor;
 
 import com.talexu.htdais.domain.QuantizedNews;
 
-public class HtmlProcessor extends NewsProcessorDecorator {
+public class StoreProcessor extends NewsProcessorDecorator {
 
-	public HtmlProcessor(NewsProcessor newsProcessor) {
+	public StoreProcessor(NewsProcessor newsProcessor) {
 		super(newsProcessor);
 		// TODO Auto-generated constructor stub
 	}
