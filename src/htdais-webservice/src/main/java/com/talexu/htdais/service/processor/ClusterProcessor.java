@@ -73,9 +73,9 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 	}
 
 	@Override
-	public void execute(QuantizedNews quantizedNews) {
+	public QuantizedNews execute(QuantizedNews quantizedNews) {
 		// TODO
-		super.execute(quantizedNews);
+		return super.execute(quantizedNews);
 	}
 
 	@Override

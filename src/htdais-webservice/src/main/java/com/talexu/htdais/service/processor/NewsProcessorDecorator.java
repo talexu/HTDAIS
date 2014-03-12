@@ -6,6 +6,14 @@ public abstract class NewsProcessorDecorator implements NewsProcessor {
 
 	protected NewsProcessor newsProcessor;
 
+	public NewsProcessor getNewsProcessor() {
+		return newsProcessor;
+	}
+
+	public void setNewsProcessor(NewsProcessor newsProcessor) {
+		this.newsProcessor = newsProcessor;
+	}
+
 	public NewsProcessorDecorator() {
 
 	}
@@ -15,10 +23,11 @@ public abstract class NewsProcessorDecorator implements NewsProcessor {
 	}
 
 	@Override
-	public void execute(QuantizedNews quantizedNews) {
+	public QuantizedNews execute(QuantizedNews quantizedNews) {
 		if (newsProcessor != null) {
-			newsProcessor.execute(quantizedNews);
+			return newsProcessor.execute(quantizedNews);
 		}
+		return quantizedNews;
 	}
 
 }

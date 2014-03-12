@@ -14,8 +14,8 @@ public class StoreProcessor extends NewsProcessorDecorator {
 	}
 
 	@Override
-	public void execute(QuantizedNews quantizedNews) {
+	public QuantizedNews execute(QuantizedNews quantizedNews) {
 		// TODO
-		super.execute(quantizedNews);
+		return super.execute(quantizedNews);
 	}
 }

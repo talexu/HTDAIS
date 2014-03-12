@@ -3,7 +3,7 @@ package com.talexu.htdais.domain;
 import moa.cluster.Cluster;
 
 public class QuantizedNews extends News {
-	
+
 	private double[] vector;
 	private Cluster cluster;
 
@@ -24,6 +24,6 @@ public class QuantizedNews extends News {
 	}
 
 	public QuantizedNews() {
-
+		super();
 	}
 }

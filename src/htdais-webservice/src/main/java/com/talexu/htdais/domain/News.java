@@ -1,13 +1,16 @@
 package com.talexu.htdais.domain;
 
 import java.util.Date;
+import java.util.LinkedList;
 import java.util.List;
 
 public abstract class News {
-	
+
 	private String uri;
+	private String html;
 	private Date date;
-	private String header;
+	private String title;
+	private Boolean isTheme;
 	private String summary;
 	private String mainbody;
 	private String image;
@@ -21,6 +24,14 @@ public abstract class News {
 		this.uri = uri;
 	}
 
+	public String getHtml() {
+		return html;
+	}
+
+	public void setHtml(String html) {
+		this.html = html;
+	}
+
 	public Date getDate() {
 		return date;
 	}
@@ -29,12 +40,20 @@ public abstract class News {
 		this.date = date;
 	}
 
-	public String getHeader() {
-		return header;
+	public String getTitle() {
+		return title;
 	}
 
-	public void setHeader(String header) {
-		this.header = header;
+	public void setTitle(String title) {
+		this.title = title;
+	}
+
+	public Boolean getIsTheme() {
+		return isTheme;
+	}
+
+	public void setIsTheme(Boolean isTheme) {
+		this.isTheme = isTheme;
 	}
 
 	public String getSummary() {
@@ -70,6 +89,7 @@ public abstract class News {
 	}
 
 	public News() {
-
+		isTheme = false;
+		keywords = new LinkedList<String>();
 	}
 }
