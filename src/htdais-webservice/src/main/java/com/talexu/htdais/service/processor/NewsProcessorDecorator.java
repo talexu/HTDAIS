@@ -6,14 +6,18 @@ public class NewsProcessorDecorator implements NewsProcessor {
 
 	protected NewsProcessor newsProcessor;
 
+	public NewsProcessorDecorator() {
+
+	}
+
 	public NewsProcessorDecorator(NewsProcessor newsProcessor) {
 		this.newsProcessor = newsProcessor;
 	}
 
 	@Override
-	public void process(QuantizedNews quantizedNews) {
+	public void execute(QuantizedNews quantizedNews) {
 		if (newsProcessor != null) {
-			newsProcessor.process(quantizedNews);
+			newsProcessor.execute(quantizedNews);
 		}
 	}
 

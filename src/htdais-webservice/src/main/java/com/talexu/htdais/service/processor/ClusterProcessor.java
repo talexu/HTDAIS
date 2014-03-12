@@ -41,6 +41,11 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 		this.initPoints = initPoints;
 	}
 
+	public ClusterProcessor() {
+		super();
+		initClusterer();
+	}
+
 	public ClusterProcessor(NewsProcessor newsProcessor) {
 		super(newsProcessor);
 		initClusterer();
@@ -68,9 +73,9 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 	}
 
 	@Override
-	public void process(QuantizedNews quantizedNews) {
+	public void execute(QuantizedNews quantizedNews) {
 		// TODO
-		super.process(quantizedNews);
+		super.execute(quantizedNews);
 	}
 
 	@Override

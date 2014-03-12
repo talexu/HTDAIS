@@ -6,5 +6,5 @@ import com.talexu.htdais.domain.QuantizedNews;
 
 public interface NewsRanker {
 
-	public List<QuantizedNews> rankNews(List<QuantizedNews> quantizedNews);
+	public List<QuantizedNews> execute(List<QuantizedNews> quantizedNews);
 }

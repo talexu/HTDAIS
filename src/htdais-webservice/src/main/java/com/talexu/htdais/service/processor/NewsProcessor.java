@@ -4,5 +4,5 @@ import com.talexu.htdais.domain.QuantizedNews;
 
 public interface NewsProcessor {
 
-	public void process(QuantizedNews quantizedNews);
+	public void execute(QuantizedNews quantizedNews);
 }
