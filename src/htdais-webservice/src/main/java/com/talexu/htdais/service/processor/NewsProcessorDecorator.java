@@ -2,7 +2,7 @@ package com.talexu.htdais.service.processor;
 
 import com.talexu.htdais.domain.QuantizedNews;
 
-public class NewsProcessorDecorator implements NewsProcessor {
+public abstract class NewsProcessorDecorator implements NewsProcessor {
 
 	protected NewsProcessor newsProcessor;
 

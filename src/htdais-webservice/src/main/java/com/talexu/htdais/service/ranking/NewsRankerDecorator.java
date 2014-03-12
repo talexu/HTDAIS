@@ -4,7 +4,7 @@ import java.util.List;
 
 import com.talexu.htdais.domain.QuantizedNews;
 
-public class NewsRankerDecorator implements NewsRanker {
+public abstract class NewsRankerDecorator implements NewsRanker {
 
 	protected NewsRanker newsRanker;
 

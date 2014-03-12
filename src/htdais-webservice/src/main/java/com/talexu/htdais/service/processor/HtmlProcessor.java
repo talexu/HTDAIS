@@ -3,7 +3,7 @@ package com.talexu.htdais.service.processor;
 import com.talexu.htdais.domain.QuantizedNews;
 
 public class HtmlProcessor extends NewsProcessorDecorator {
-
+	
 	public HtmlProcessor() {
 		super();
 	}
