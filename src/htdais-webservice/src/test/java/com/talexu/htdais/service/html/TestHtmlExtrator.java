@@ -10,9 +10,13 @@ import java.util.Map;
 import org.apache.commons.io.IOUtils;
 import org.junit.Before;
 import org.junit.Test;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 
 public class TestHtmlExtrator {
-
+	
+	Logger logger = LoggerFactory.getLogger(TestHtmlExtrator.class);
+	
 	HtmlExtrator htmlExtrator;
 	String html;
 
@@ -49,7 +53,6 @@ public class TestHtmlExtrator {
 		assertTrue(htmlExtrator instanceof HtmlExtrator);
 		Map<String, String> result = htmlExtrator.execute(html);
 		result.remove(PreprocessHtmlExtrator.KPREPROCESSEDHTML);
-		System.out.println(result);
 		assertTrue(result instanceof Map);
 	}
 

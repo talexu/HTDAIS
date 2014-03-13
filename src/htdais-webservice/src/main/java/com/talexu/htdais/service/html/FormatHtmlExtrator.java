@@ -2,7 +2,12 @@ package com.talexu.htdais.service.html;
 
 import java.util.Map;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
+
 public class FormatHtmlExtrator extends HtmlExtratorDecorator {
+
+	Logger logger = LoggerFactory.getLogger(FormatHtmlExtrator.class);
 
 	public FormatHtmlExtrator() {
 		super();
@@ -21,6 +26,8 @@ public class FormatHtmlExtrator extends HtmlExtratorDecorator {
 			result.put(BasicHtmlExtrator.KMAINBODY,
 					mainBody.replaceAll("\\s+", "\n").trim());
 		}
+
+		logger.debug(result.toString());
 
 		return result;
 	}
