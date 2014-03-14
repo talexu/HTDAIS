@@ -27,7 +27,7 @@ public class FormatHtmlExtrator extends HtmlExtratorDecorator {
 					mainBody.replaceAll("\\s+", "\n").trim());
 		}
 
-		logger.debug(result.toString());
+//		logger.debug(result.toString());
 
 		return result;
 	}

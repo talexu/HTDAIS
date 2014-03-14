@@ -78,13 +78,11 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 		return super.execute(quantizedNews);
 	}
 
-	@Override
 	public QuantizedNews matchCluster(QuantizedNews quantizedNews) {
 		// TODO Auto-generated method stub
 		return quantizedNews;
 	}
 
-	@Override
 	public List<QuantizedNews> matchCluster(List<QuantizedNews> quantizedNews) {
 		// TODO Auto-generated method stub
 		return quantizedNews;

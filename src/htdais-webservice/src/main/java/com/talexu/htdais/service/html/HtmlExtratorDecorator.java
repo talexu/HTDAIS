@@ -40,7 +40,6 @@ public abstract class HtmlExtratorDecorator implements HtmlExtrator {
 		this.htmlExtrator = htmlExtrator;
 	}
 
-	@Override
 	public Map<String, String> execute(String htmlText) {
 		if (htmlExtrator != null) {
 			return htmlExtrator.execute(htmlText);

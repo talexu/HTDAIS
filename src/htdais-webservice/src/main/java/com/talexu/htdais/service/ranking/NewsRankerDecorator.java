@@ -24,7 +24,6 @@ public abstract class NewsRankerDecorator implements NewsRanker {
 		this.newsRanker = newsRanker;
 	}
 
-	@Override
 	public List<QuantizedNews> execute(List<QuantizedNews> quantizedNews) {
 		if (newsRanker != null) {
 			return newsRanker.execute(quantizedNews);
