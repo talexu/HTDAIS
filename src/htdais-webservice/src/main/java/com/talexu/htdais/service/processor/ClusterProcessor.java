@@ -98,7 +98,7 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 			Instance instance = new DenseInstance(1, vector);
 			instance.setDataset(instances);
 			htdaisClusterer.trainOnInstance(instance);
-			
+
 			result.setInstance(instance);
 		}
 
@@ -118,10 +118,6 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 		return vector;
 	}
 
-	public QuantizedNews matchCluster(QuantizedNews quantizedNews) {
-		return matchCluster(getClusters(), quantizedNews);
-	}
-
 	public QuantizedNews matchCluster(AutoExpandVector<Cluster> clusters,
 			QuantizedNews quantizedNews) {
 		double maxProbability = 0;
@@ -136,6 +132,12 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 		return quantizedNews;
 	}
 
+	@Override
+	public QuantizedNews matchCluster(QuantizedNews quantizedNews) {
+		return matchCluster(getClusters(), quantizedNews);
+	}
+
+	@Override
 	public List<QuantizedNews> matchCluster(List<QuantizedNews> quantizedNews) {
 		AutoExpandVector<Cluster> clusters = getClusters();
 		for (QuantizedNews quantizedNew : quantizedNews) {
