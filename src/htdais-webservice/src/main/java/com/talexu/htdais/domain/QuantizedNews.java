@@ -1,10 +1,12 @@
 package com.talexu.htdais.domain;
 
+import weka.core.Instance;
 import moa.cluster.Cluster;
 
 public class QuantizedNews extends News {
 
 	private double[] vector;
+	private Instance instance;
 	private Cluster cluster;
 
 	public double[] getVector() {
@@ -13,6 +15,14 @@ public class QuantizedNews extends News {
 
 	public void setVector(double[] vector) {
 		this.vector = vector;
+	}
+
+	public Instance getInstance() {
+		return instance;
+	}
+
+	public void setInstance(Instance instance) {
+		this.instance = instance;
 	}
 
 	public Cluster getCluster() {
@@ -46,6 +56,13 @@ public class QuantizedNews extends News {
 				vectorStringBuilder.append(", ");
 			}
 			this.append(stringBuilder, vectorStringBuilder.toString());
+		}
+
+		if (this.getInstance() != null) {
+			this.append(stringBuilder, this.getInstance().toString());
+		}
+		if (this.getCluster() != null) {
+			this.append(stringBuilder, this.getCluster().toString());
 		}
 
 		return stringBuilder.toString();
