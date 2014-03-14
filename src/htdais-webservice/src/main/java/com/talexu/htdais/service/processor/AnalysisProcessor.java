@@ -67,12 +67,7 @@ public class AnalysisProcessor extends NewsProcessorDecorator {
 			try {
 				result.setSummary(highlighter.getBestFragment(analyzer,
 						"myfield", result.getMainbody()));
-
-				logger.debug(result.toString());
-			} catch (IOException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			} catch (InvalidTokenOffsetsException e) {
+			} catch (IOException | InvalidTokenOffsetsException e) {
 				// TODO Auto-generated catch block
 				e.printStackTrace();
 			}

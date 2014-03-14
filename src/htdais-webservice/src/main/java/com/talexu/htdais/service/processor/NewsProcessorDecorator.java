@@ -22,6 +22,7 @@ public abstract class NewsProcessorDecorator implements NewsProcessor {
 		this.newsProcessor = newsProcessor;
 	}
 
+	@Override
 	public QuantizedNews execute(QuantizedNews quantizedNews) {
 		if (newsProcessor != null) {
 			return newsProcessor.execute(quantizedNews);

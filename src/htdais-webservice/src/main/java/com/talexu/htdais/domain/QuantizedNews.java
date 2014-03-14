@@ -39,6 +39,15 @@ public class QuantizedNews extends News {
 		this.append(stringBuilder, this.getSummary());
 		this.append(stringBuilder, this.getMainbody());
 
+		if (vector != null) {
+			StringBuilder vectorStringBuilder = new StringBuilder();
+			for (double dimention : vector) {
+				vectorStringBuilder.append(dimention);
+				vectorStringBuilder.append(", ");
+			}
+			this.append(stringBuilder, vectorStringBuilder.toString());
+		}
+
 		return stringBuilder.toString();
 	}
 
