@@ -1,12 +1,43 @@
 <?xml version="1.0" encoding="UTF-8"?>
 
-<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xmlns:context="http://www.springframework.org/schema/context"
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:context="http://www.springframework.org/schema/context"
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
 		http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd">
-    
-    <!-- Uncomment and add your base-package here:
-         <context:component-scan
-            base-package="org.springframework.samples.service"/>  -->
 
+	<!-- Uncomment and add your base-package here: <context:component-scan base-package="org.springframework.samples.service"/> -->
+
+	<!-- <context:component-scan base-package="com.talexu.htdais.service.processor"/> -->
+	
+	<bean id="preprocessHtmlExtrator" class="com.talexu.htdais.service.html.PreprocessHtmlExtrator">
+	</bean>
+	<bean id="basicHtmlExtrator" class="com.talexu.htdais.service.html.BasicHtmlExtrator">
+		<property name="htmlExtrator" ref="preprocessHtmlExtrator"/>
+	</bean>
+	<bean id="imageHtmlExtrator" class="com.talexu.htdais.service.html.ImageHtmlExtrator">
+		<property name="htmlExtrator" ref="basicHtmlExtrator"/>
+	</bean>
+	<bean id="formatHtmlExtrator" class="com.talexu.htdais.service.html.FormatHtmlExtrator">
+		<property name="htmlExtrator" ref="imageHtmlExtrator"/>
+	</bean>
+	
+	<bean id="word2VEC" class="com.talexu.htdais.word2vec.Word2VEC">
+		<constructor-arg type="java.lang.String" value="/Users/bjutales/Documents/Development/Resources/vectors.bin"/>
+	</bean>
+	
+	<bean id="htmlProcessor" class="com.talexu.htdais.service.processor.HtmlProcessor">
+		<property name="htmlExtrator" ref="formatHtmlExtrator"/>
+	</bean>
+	<bean id="analysisProcessor" class="com.talexu.htdais.service.processor.AnalysisProcessor">
+		<property name="newsProcessor" ref="htmlProcessor"/>
+	</bean>
+	<bean id="vectorProcessor" class="com.talexu.htdais.service.processor.VectorProcessor">
+		<property name="newsProcessor" ref="analysisProcessor"/>
+		<property name="vectorCalculator" ref="word2VEC"/>
+	</bean>
+	<bean id="clusterProcessor" class="com.talexu.htdais.service.processor.ClusterProcessor">
+		<property name="newsProcessor" ref="vectorProcessor"/>
+	</bean>
+	
+	<alias name="clusterProcessor" alias="newsProcessor"/>
 </beans>

@@ -40,35 +40,39 @@ public class QuantizedNews extends News {
 	@Override
 	public String toString() {
 		StringBuilder stringBuilder = new StringBuilder();
-		this.append(stringBuilder, super.toString());
-		this.append(stringBuilder, this.getUri());
-		this.append(stringBuilder, this.getIsTheme().toString());
-		this.append(stringBuilder, this.getTitle());
-		this.append(stringBuilder, this.getImage());
-		this.append(stringBuilder, this.getKeywords().toString());
-		this.append(stringBuilder, this.getSummary());
-		this.append(stringBuilder, this.getMainbody());
+		this.append(stringBuilder, "QuantizedNews", super.toString());
+		this.append(stringBuilder, "uri", this.getUri());
+		this.append(stringBuilder, "is theme", this.getIsTheme().toString());
+		this.append(stringBuilder, "title", this.getTitle());
+		this.append(stringBuilder, "image", this.getImage());
+		this.append(stringBuilder, "keywords", this.getKeywords().toString());
+		this.append(stringBuilder, "summary", this.getSummary());
+		this.append(stringBuilder, "mainbody", this.getMainbody());
 
-		if (vector != null) {
-			StringBuilder vectorStringBuilder = new StringBuilder();
-			for (double dimention : vector) {
-				vectorStringBuilder.append(dimention);
-				vectorStringBuilder.append(", ");
-			}
-			this.append(stringBuilder, vectorStringBuilder.toString());
-		}
+//		if (vector != null) {
+//			StringBuilder vectorStringBuilder = new StringBuilder();
+//			for (double dimention : vector) {
+//				vectorStringBuilder.append(dimention);
+//				vectorStringBuilder.append(", ");
+//			}
+//			this.append(stringBuilder, "uri", vectorStringBuilder.toString());
+//		}
 
 		if (this.getInstance() != null) {
-			this.append(stringBuilder, this.getInstance().toString());
+			this.append(stringBuilder, "instance", this.getInstance().toString());
 		}
 		if (this.getCluster() != null) {
-			this.append(stringBuilder, this.getCluster().toString());
+			this.append(stringBuilder, "cluster", this.getCluster().toString());
 		}
 
 		return stringBuilder.toString();
 	}
 
-	private StringBuilder append(StringBuilder stringBuilder, String string) {
+	private StringBuilder append(StringBuilder stringBuilder, String header, String string) {
+		stringBuilder.append("---------------");
+		stringBuilder.append(header);
+		stringBuilder.append("---------------");
+		stringBuilder.append(System.getProperty("line.separator"));
 		stringBuilder.append(string);
 		stringBuilder.append(System.getProperty("line.separator"));
 		return stringBuilder;
