@@ -39,5 +39,6 @@
 		<property name="newsProcessor" ref="vectorProcessor"/>
 	</bean>
 	
+	<alias name="formatHtmlExtrator" alias="htmlExtrator"/>
 	<alias name="clusterProcessor" alias="newsProcessor"/>
 </beans>
