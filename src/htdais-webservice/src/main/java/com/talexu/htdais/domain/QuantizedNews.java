@@ -9,6 +9,8 @@ public class QuantizedNews extends News {
 	private Instance instance;
 	private Cluster cluster;
 
+	private double ranking;
+
 	public double[] getVector() {
 		return vector;
 	}
@@ -33,6 +35,14 @@ public class QuantizedNews extends News {
 		this.cluster = cluster;
 	}
 
+	public double getRanking() {
+		return ranking;
+	}
+
+	public void setRanking(double ranking) {
+		this.ranking = ranking;
+	}
+
 	public QuantizedNews() {
 		super();
 	}
@@ -49,17 +59,18 @@ public class QuantizedNews extends News {
 		this.append(stringBuilder, "summary", this.getSummary());
 		this.append(stringBuilder, "mainbody", this.getMainbody());
 
-//		if (vector != null) {
-//			StringBuilder vectorStringBuilder = new StringBuilder();
-//			for (double dimention : vector) {
-//				vectorStringBuilder.append(dimention);
-//				vectorStringBuilder.append(", ");
-//			}
-//			this.append(stringBuilder, "uri", vectorStringBuilder.toString());
-//		}
+		// if (vector != null) {
+		// StringBuilder vectorStringBuilder = new StringBuilder();
+		// for (double dimention : vector) {
+		// vectorStringBuilder.append(dimention);
+		// vectorStringBuilder.append(", ");
+		// }
+		// this.append(stringBuilder, "uri", vectorStringBuilder.toString());
+		// }
 
 		if (this.getInstance() != null) {
-			this.append(stringBuilder, "instance", this.getInstance().toString());
+			this.append(stringBuilder, "instance", this.getInstance()
+					.toString());
 		}
 		if (this.getCluster() != null) {
 			this.append(stringBuilder, "cluster", this.getCluster().toString());
@@ -68,7 +79,8 @@ public class QuantizedNews extends News {
 		return stringBuilder.toString();
 	}
 
-	private StringBuilder append(StringBuilder stringBuilder, String header, String string) {
+	private StringBuilder append(StringBuilder stringBuilder, String header,
+			String string) {
 		stringBuilder.append("---------------");
 		stringBuilder.append(header);
 		stringBuilder.append("---------------");

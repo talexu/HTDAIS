@@ -118,7 +118,7 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 		return vector;
 	}
 
-	public QuantizedNews matchCluster(AutoExpandVector<Cluster> clusters,
+	protected QuantizedNews matchCluster(AutoExpandVector<Cluster> clusters,
 			QuantizedNews quantizedNews) {
 		double maxProbability = 0;
 		for (Cluster cluster : clusters) {

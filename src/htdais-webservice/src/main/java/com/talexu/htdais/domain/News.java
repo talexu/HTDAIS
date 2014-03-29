@@ -90,6 +90,6 @@ public abstract class News {
 
 	public News() {
 		isTheme = false;
-		keywords = new LinkedList<String>();
+		keywords = new LinkedList<>();
 	}
 }

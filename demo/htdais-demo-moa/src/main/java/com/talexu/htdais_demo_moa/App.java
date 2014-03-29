@@ -27,9 +27,9 @@ public class App {
 
 	public static void main(String[] args) {
 
-//		 randomGenerator();
+		 randomGenerator();
 		 
-		randomFromVectors();
+//		randomFromVectors();
 	}
 
 	private static void randomFromVectors() {
@@ -98,6 +98,7 @@ public class App {
 		System.out.println(clusterer.getClusteringResult().size());
 		for (Cluster cluster : clusterer.getClusteringResult().getClustering()) {
 			System.out.println(cluster.getInfo());
+//			System.out.println(cluster.getWeight());
 		}
 		Instance testInstance = new DenseInstance(1.0, new double[] { 0.79,
 				0.56, 0.56, 1 });

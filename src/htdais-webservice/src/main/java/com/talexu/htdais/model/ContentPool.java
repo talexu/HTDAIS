@@ -37,8 +37,8 @@ public class ContentPool {
 	}
 
 	public ContentPool() {
-		news = new LinkedList<QuantizedNews>();
-		hotNews = new LinkedList<News>();
-		todayNews = new LinkedList<News>();
+		news = new LinkedList<>();
+		hotNews = new LinkedList<>();
+		todayNews = new LinkedList<>();
 	}
 }
