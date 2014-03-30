@@ -1,14 +1,8 @@
 package com.talexu.htdais.service.ranking;
 
 import java.util.Calendar;
-import java.util.Date;
-import java.util.HashSet;
-import java.util.LinkedList;
 import java.util.List;
 import java.util.Random;
-import java.util.Set;
-
-import moa.cluster.Cluster;
 
 import org.apache.commons.math3.distribution.MultivariateNormalDistribution;
 import org.slf4j.Logger;
@@ -73,17 +67,15 @@ public class NormalNewsRanker extends NewsRankerDecorator {
 		// return clusteredNews;
 
 		Random random = new Random();
-		MultivariateNormalDistribution multivariateNormalDistribution = generateNormalDistribution();
+		MultivariateNormalDistribution multivariateNormalDistribution = generateNormalDistribution(
+				new double[] { 10, 1 },
+				new double[][] { { 10, 0 }, { 0, 0.1 } });
 		for (QuantizedNews quantizedNew : quantizedNews) {
 			int clusterSize = random.nextInt(20);
 			double time = (double) quantizedNew.getCalendar().getTimeInMillis()
 					/ Calendar.getInstance().getTimeInMillis();
 			logger.debug("cluster size = {}", clusterSize);
 			logger.debug("time = {}", time);
-			// quantizedNew.setRanking(multivariateNormalDistribution
-			// .density(new double[] {
-			// clusterSize,
-			// quantizedNew.getCalendar().getTimeInMillis() }));
 			double ranking = multivariateNormalDistribution
 					.density(new double[] { clusterSize, time });
 			logger.debug("ranking = {}", ranking);
@@ -93,9 +85,8 @@ public class NormalNewsRanker extends NewsRankerDecorator {
 		return quantizedNews;
 	}
 
-	protected MultivariateNormalDistribution generateNormalDistribution() {
-		double[] mu = { 10, 1 };
-		double[][] sigma = { { 10, 0 }, { 0, 0.1 } };
+	public MultivariateNormalDistribution generateNormalDistribution(
+			double[] mu, double[][] sigma) {
 		return new MultivariateNormalDistribution(mu, sigma);
 	}
 
@@ -105,5 +96,4 @@ public class NormalNewsRanker extends NewsRankerDecorator {
 				.execute(quantizedNews));
 		return normalizedNews;
 	}
-
 }
