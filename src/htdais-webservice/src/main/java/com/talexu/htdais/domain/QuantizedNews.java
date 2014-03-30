@@ -52,6 +52,7 @@ public class QuantizedNews extends News {
 		StringBuilder stringBuilder = new StringBuilder();
 		this.append(stringBuilder, "QuantizedNews", super.toString());
 		this.append(stringBuilder, "uri", this.getUri());
+		this.append(stringBuilder, "calendar", this.getCalendar().toString());
 		this.append(stringBuilder, "is theme", this.getIsTheme().toString());
 		this.append(stringBuilder, "title", this.getTitle());
 		this.append(stringBuilder, "image", this.getImage());
@@ -75,6 +76,8 @@ public class QuantizedNews extends News {
 		if (this.getCluster() != null) {
 			this.append(stringBuilder, "cluster", this.getCluster().toString());
 		}
+		this.append(stringBuilder, "ranking",
+				Double.toString(this.getRanking()));
 
 		return stringBuilder.toString();
 	}

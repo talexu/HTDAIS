@@ -1,6 +1,6 @@
 package com.talexu.htdais.domain;
 
-import java.util.Date;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
@@ -8,7 +8,7 @@ public abstract class News {
 
 	private String uri;
 	private String html;
-	private Date date;
+	private Calendar calendar;
 	private String title;
 	private Boolean isTheme;
 	private String summary;
@@ -32,12 +32,12 @@ public abstract class News {
 		this.html = html;
 	}
 
-	public Date getDate() {
-		return date;
+	public Calendar getCalendar() {
+		return calendar;
 	}
 
-	public void setDate(Date date) {
-		this.date = date;
+	public void setCalendar(Calendar calendar) {
+		this.calendar = calendar;
 	}
 
 	public String getTitle() {

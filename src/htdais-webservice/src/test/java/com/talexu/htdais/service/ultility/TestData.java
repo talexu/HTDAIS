@@ -4,8 +4,10 @@ import java.io.IOException;
 import java.io.InputStream;
 import java.net.URL;
 import java.util.Arrays;
+import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
+import java.util.Random;
 
 import org.apache.commons.io.IOUtils;
 
@@ -45,6 +47,8 @@ public class TestData {
 		if (quantizedNewses == null) {
 			quantizedNewses = new LinkedList<>();
 			InputStream in = null;
+			Random random = new Random();
+
 			for (String url : urls) {
 				try {
 					in = new URL(url).openStream();
@@ -52,6 +56,9 @@ public class TestData {
 					QuantizedNews quantizedNew = new QuantizedNews();
 					quantizedNew.setUri(url);
 					quantizedNew.setHtml(html);
+					Calendar calendar = Calendar.getInstance();
+					calendar.add(Calendar.MINUTE, random.nextInt(500));
+					quantizedNew.setCalendar(calendar);
 					quantizedNewses.add(quantizedNew);
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
