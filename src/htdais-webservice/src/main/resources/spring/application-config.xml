@@ -20,13 +20,16 @@
 	<bean id="formatHtmlExtrator" class="com.talexu.htdais.service.html.FormatHtmlExtrator">
 		<property name="htmlExtrator" ref="imageHtmlExtrator"/>
 	</bean>
+	<bean id="cleanHtmlExtrator" class="com.talexu.htdais.service.html.CleanHtmlExtrator">
+		<property name="htmlExtrator" ref="formatHtmlExtrator"/>
+	</bean>
 	
 	<bean id="word2VEC" class="com.talexu.htdais.word2vec.Word2VEC">
 		<constructor-arg type="java.lang.String" value="/Users/bjutales/Documents/Development/Resources/vectors.bin"/>
 	</bean>
 	
 	<bean id="htmlProcessor" class="com.talexu.htdais.service.processor.HtmlProcessor">
-		<property name="htmlExtrator" ref="formatHtmlExtrator"/>
+		<property name="htmlExtrator" ref="htmlExtrator"/>
 	</bean>
 	<bean id="analysisProcessor" class="com.talexu.htdais.service.processor.AnalysisProcessor">
 		<property name="newsProcessor" ref="htmlProcessor"/>
@@ -38,15 +41,22 @@
 	<bean id="clusterProcessor" class="com.talexu.htdais.service.processor.ClusterProcessor">
 		<property name="newsProcessor" ref="vectorProcessor"/>
 	</bean>
+	<bean id="cleanProcessor" class="com.talexu.htdais.service.processor.CleanProcessor">
+		<property name="newsProcessor" ref="clusterProcessor"/>
+	</bean>
 	
 	<bean id="twoDimentionalStandardNormalDistribution" class="com.talexu.htdais.service.statistics.TwoDimentionalStandardNormalDistribution">
 	</bean>
 	
+	<bean id="newsThemeFilter" class="com.talexu.htdais.service.ranking.NewsThemeFilter">
+	</bean>
 	<bean id="normalNewsRanker" class="com.talexu.htdais.service.ranking.NormalNewsRanker">
+		<property name="newsRanker" ref="newsThemeFilter"/>
 		<property name="distributionProcessor" ref="twoDimentionalStandardNormalDistribution"/>
 		<property name="clusterMatcher" ref="clusterProcessor"/>
 	</bean>
 	
-	<alias name="formatHtmlExtrator" alias="htmlExtrator"/>
-	<alias name="clusterProcessor" alias="newsProcessor"/>
+	<alias name="cleanHtmlExtrator" alias="htmlExtrator"/>
+	<alias name="cleanProcessor" alias="newsProcessor"/>
+	<alias name="normalNewsRanker" alias="newsRanker"/>
 </beans>

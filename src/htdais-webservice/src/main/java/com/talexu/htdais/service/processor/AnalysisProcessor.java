@@ -52,25 +52,28 @@ public class AnalysisProcessor extends NewsProcessorDecorator {
 				result.getKeywords().add(keyword.getName());
 			}
 
-			// Summary
-			WeightedSpanTerm[] weightedSpanTerms = new WeightedSpanTerm[keywords
-					.size()];
-			int i = 0;
-			for (Keyword keyword : keywords) {
-				weightedSpanTerms[i++] = new WeightedSpanTerm(1,
-						keyword.getName());
+			if (result.getMainbody() != null) {
+				// Summary
+				WeightedSpanTerm[] weightedSpanTerms = new WeightedSpanTerm[keywords
+						.size()];
+				int i = 0;
+				for (Keyword keyword : keywords) {
+					weightedSpanTerms[i++] = new WeightedSpanTerm(1,
+							keyword.getName());
+				}
+				QueryScorer scorer = new QueryScorer(weightedSpanTerms);
+				Highlighter highlighter = new Highlighter(
+						new SimpleHTMLFormatter("", ""), scorer);
+				highlighter.setTextFragmenter(new SimpleFragmenter(200));
+				try {
+					result.setSummary(highlighter.getBestFragment(analyzer,
+							"myfield", result.getMainbody()));
+				} catch (IOException | InvalidTokenOffsetsException e) {
+					// TODO Auto-generated catch block
+					e.printStackTrace();
+				}
 			}
-			QueryScorer scorer = new QueryScorer(weightedSpanTerms);
-			Highlighter highlighter = new Highlighter(new SimpleHTMLFormatter(
-					"", ""), scorer);
-			highlighter.setTextFragmenter(new SimpleFragmenter(200));
-			try {
-				result.setSummary(highlighter.getBestFragment(analyzer,
-						"myfield", result.getMainbody()));
-			} catch (IOException | InvalidTokenOffsetsException e) {
-				// TODO Auto-generated catch block
-				e.printStackTrace();
-			}
+
 		}
 
 		return result;

@@ -27,34 +27,41 @@ import com.talexu.htdais.service.processor.NewsProcessor;
 public class TestNormalNewsRanker {
 
 	Logger logger = LoggerFactory.getLogger(TestNormalNewsRanker.class);
-	
-	Pattern htmlPattern = Pattern.compile(
-			".*?mirror/(.*?.(htm|html|shtml))$", Pattern.CASE_INSENSITIVE);
-	
+
+	Pattern htmlPattern = Pattern.compile(".*?mirror/(.*?.(htm|html|shtml))$",
+			Pattern.CASE_INSENSITIVE);
+
 	String prefix = "/Users/bjutales/Downloads/news";
-	
+
 	@Autowired
-	@Qualifier("clusterProcessor")
+	@Qualifier("cleanProcessor")
 	NewsProcessor newsProcessor;
 	@Autowired
 	@Qualifier("normalNewsRanker")
 	NewsRanker newsRanker;
-	
+
 	List<QuantizedNews> quantizedNews = new LinkedList<>();
-	
+
 	@Before
 	public void setUp() throws Exception {
 	}
 
 	@Test
 	public void testExecute() {
-		traverseFolder2(prefix);
-		for (QuantizedNews quantizedNew : quantizedNews) {
-			System.out.println(quantizedNew);
-		}
+		trainByTestNews(prefix);
+		logger.debug("{}, {}", latestCalendar.getTime(), latestCalendar.getTimeInMillis());
+		
+		quantizedNews = newsRanker.execute(quantizedNews);
+		
+		logger.debug("The size of the news is {}", quantizedNews.size());
+		
+//		for (QuantizedNews quantizedNew : quantizedNews) {
+//			System.out.println(quantizedNew);
+//		}
 	}
 
-	private void traverseFolder2(String path) {
+	Calendar latestCalendar = null;
+	private void trainByTestNews(String path) {
 
 		File file = new File(path);
 		if (file.exists()) {
@@ -66,7 +73,7 @@ public class TestNormalNewsRanker {
 				for (File file2 : files) {
 					if (file2.isDirectory()) {
 						// System.out.println("文件夹:" + file2.getAbsolutePath());
-						traverseFolder2(file2.getAbsolutePath());
+						trainByTestNews(file2.getAbsolutePath());
 					} else {
 						// System.out.println("文件:" + file2.getAbsolutePath());
 
@@ -76,19 +83,30 @@ public class TestNormalNewsRanker {
 							// System.out.println(matcher.group(1).trim());
 							try {
 								String uri = matcher.group(1).trim();
-								
+
 								Calendar calendar = Calendar.getInstance();
 								calendar.setTimeInMillis(file2.lastModified());
-								
-								String html = FileUtils.readFileToString(
-										file2, "GB18030");
-								
+								if (latestCalendar != null) {
+									if (calendar.after(latestCalendar)) {
+										latestCalendar = calendar;
+									}
+								}
+								else {
+									latestCalendar = calendar;
+								}
+
+								String html = FileUtils.readFileToString(file2,
+										"GB18030");
+
 								QuantizedNews quantizedNew = new QuantizedNews();
 								quantizedNew.setUri(uri);
 								quantizedNew.setCalendar(calendar);
 								quantizedNew.setHtml(html);
-								quantizedNews.add(newsProcessor.execute(quantizedNew));
+								quantizedNews.add(newsProcessor
+										.execute(quantizedNew));
 								
+								logger.debug("{}", quantizedNew.getTitle());
+
 							} catch (IOException e) {
 								// TODO Auto-generated catch block
 								e.printStackTrace();

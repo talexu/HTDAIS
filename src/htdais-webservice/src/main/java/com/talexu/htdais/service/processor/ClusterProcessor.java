@@ -120,15 +120,18 @@ public class ClusterProcessor extends NewsProcessorDecorator implements
 
 	protected QuantizedNews matchCluster(AutoExpandVector<Cluster> clusters,
 			QuantizedNews quantizedNews) {
-		double maxProbability = 0;
-		for (Cluster cluster : clusters) {
-			double probability = cluster.getInclusionProbability(quantizedNews
-					.getInstance());
-			if (probability > maxProbability) {
-				quantizedNews.setCluster(cluster);
-				maxProbability = probability;
+		if (quantizedNews.getInstance() != null) {
+			double maxProbability = 0;
+			for (Cluster cluster : clusters) {
+				double probability = cluster
+						.getInclusionProbability(quantizedNews.getInstance());
+				if (probability > maxProbability) {
+					quantizedNews.setCluster(cluster);
+					maxProbability = probability;
+				}
 			}
 		}
+
 		return quantizedNews;
 	}
 
