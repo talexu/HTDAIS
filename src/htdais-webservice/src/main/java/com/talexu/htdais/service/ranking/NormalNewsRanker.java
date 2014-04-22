@@ -159,13 +159,13 @@ public class NormalNewsRanker extends NewsRankerDecorator {
 		List<QuantizedNews> normalizedNews = initRankingPrameters(clusteredNews);
 
 		// 根据Ranking值排序
-		Collections.sort(normalizedNews, new Comparator<QuantizedNews>() {
-			@Override
-			public int compare(QuantizedNews o1, QuantizedNews o2) {
-				return (new Double(o1.getRanking() - o2.getRanking()))
-						.intValue();
-			}
-		});
+		Collections.sort(normalizedNews,
+				Collections.reverseOrder(new Comparator<QuantizedNews>() {
+					@Override
+					public int compare(QuantizedNews o1, QuantizedNews o2) {
+						return Double.compare(o1.getRanking(), o2.getRanking());
+					}
+				}));
 
 		return normalizedNews;
 	}

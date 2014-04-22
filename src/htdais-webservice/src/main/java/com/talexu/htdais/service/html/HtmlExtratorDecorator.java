@@ -100,7 +100,7 @@ public abstract class HtmlExtratorDecorator implements HtmlExtrator {
 
 		// 最长块长度小于100，归为非主题型网页
 		if (result.replaceAll("\\s+", "").length() < 100)
-			return "*推测您提供的网页为非主题型网页，目前暂不处理！:-)";
+			return "";
 		else
 			return result;
 	}

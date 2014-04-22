@@ -45,8 +45,9 @@ public class BasicHtmlExtrator extends HtmlExtratorDecorator {
 		preProcessedHtml = preProcessedHtml.replaceAll("(?is)<.*?>", "");
 
 		if (isContentPage(preProcessedHtml)) {
-			result.put(KPAGETYPE, THEMEPAGE);
-			result.put(KMAINBODY, extractMainBody(preProcessedHtml));
+			String mainBody = extractMainBody(preProcessedHtml);
+			result.put(KMAINBODY, mainBody);
+			result.put(KPAGETYPE, mainBody == "" ? UNKNOWNPAGE : THEMEPAGE);
 		} else {
 			result.put(KPAGETYPE, UNKNOWNPAGE);
 		}

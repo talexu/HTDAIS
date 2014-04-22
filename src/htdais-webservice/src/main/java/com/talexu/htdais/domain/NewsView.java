@@ -4,17 +4,15 @@ import java.util.Calendar;
 import java.util.LinkedList;
 import java.util.List;
 
-public abstract class News {
-
+public class NewsView {
 	private String uri;
-	private String html;
 	private Calendar calendar;
 	private String title;
-	private Boolean isTheme;
 	private String summary;
 	private String mainbody;
 	private String image;
 	private List<String> keywords;
+	private double ranking;
 
 	public String getUri() {
 		return uri;
@@ -22,14 +20,6 @@ public abstract class News {
 
 	public void setUri(String uri) {
 		this.uri = uri;
-	}
-
-	public String getHtml() {
-		return html;
-	}
-
-	public void setHtml(String html) {
-		this.html = html;
 	}
 
 	public Calendar getCalendar() {
@@ -46,14 +36,6 @@ public abstract class News {
 
 	public void setTitle(String title) {
 		this.title = title;
-	}
-
-	public Boolean getIsTheme() {
-		return isTheme;
-	}
-
-	public void setIsTheme(Boolean isTheme) {
-		this.isTheme = isTheme;
 	}
 
 	public String getSummary() {
@@ -88,17 +70,35 @@ public abstract class News {
 		this.keywords = keywords;
 	}
 
-	public News() {
-		isTheme = false;
-		keywords = new LinkedList<>();
+	public double getRanking() {
+		return ranking;
 	}
 
-	public static List<News> getNews(List<QuantizedNews> quantizedNews) {
-		List<News> news = new LinkedList<>();
+	public void setRanking(double ranking) {
+		this.ranking = ranking;
+	}
+
+	public NewsView() {
+
+	}
+
+	public NewsView(QuantizedNews quantizedNews) {
+		setUri(quantizedNews.getUri());
+		setCalendar(quantizedNews.getCalendar());
+		setTitle(quantizedNews.getTitle());
+		setSummary(quantizedNews.getSummary());
+		setMainbody(quantizedNews.getMainbody());
+		setImage(quantizedNews.getImage());
+		setKeywords(quantizedNews.getKeywords());
+		setRanking(quantizedNews.getRanking());
+	}
+
+	public static List<NewsView> getNewsViews(List<QuantizedNews> quantizedNews) {
+		List<NewsView> newsViews = new LinkedList<>();
 		for (QuantizedNews quantizedNew : quantizedNews) {
-			news.add(quantizedNew);
+			newsViews.add(new NewsView(quantizedNew));
 		}
 
-		return news;
+		return newsViews;
 	}
 }

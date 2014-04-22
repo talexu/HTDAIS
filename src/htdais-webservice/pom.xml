@@ -18,9 +18,11 @@
 		<jstl.version>1.2</jstl.version>
 		<servlet.version>2.5</servlet.version>
 
-
 		<!-- Spring -->
 		<spring-framework.version>4.0.2.RELEASE</spring-framework.version>
+		
+		<!-- Jackson -->
+		<jackson-databind.version>2.3.3</jackson-databind.version>
 
 		<!-- Hibernate / JPA -->
 		<hibernate.version>4.3.1.Final</hibernate.version>
@@ -49,7 +51,7 @@
 		<junit.version>4.11</junit.version>
 
 		<!-- tomcat -->
-		<org.apache.tomcat.maven.version>org.apache.tomcat.maven</org.apache.tomcat.maven.version>
+		<org.apache.tomcat.maven.version>2.2</org.apache.tomcat.maven.version>
 
 	</properties>
 
@@ -93,6 +95,12 @@
 			<groupId>org.springframework</groupId>
 			<artifactId>spring-tx</artifactId>
 			<version>${spring-framework.version}</version>
+		</dependency>
+		
+		<dependency>
+			<groupId>com.fasterxml.jackson.core</groupId>
+			<artifactId>jackson-databind</artifactId>
+			<version>${jackson-databind.version}</version>
 		</dependency>
 
 		<!-- Logging with SLF4J & LogBack -->
