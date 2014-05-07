@@ -25,6 +25,8 @@ public class AnalysisProcessor extends NewsProcessorDecorator {
 	KeyWordComputer kwc;
 	Analyzer analyzer;
 
+	int summaryLength = 100;
+
 	public AnalysisProcessor() {
 		super();
 		initAnalyzer();
@@ -33,6 +35,14 @@ public class AnalysisProcessor extends NewsProcessorDecorator {
 	public AnalysisProcessor(NewsProcessor newsProcessor) {
 		super(newsProcessor);
 		initAnalyzer();
+	}
+
+	public int getSummaryLength() {
+		return summaryLength;
+	}
+
+	public void setSummaryLength(int summaryLength) {
+		this.summaryLength = summaryLength;
 	}
 
 	protected void initAnalyzer() {
@@ -64,10 +74,26 @@ public class AnalysisProcessor extends NewsProcessorDecorator {
 				QueryScorer scorer = new QueryScorer(weightedSpanTerms);
 				Highlighter highlighter = new Highlighter(
 						new SimpleHTMLFormatter("", ""), scorer);
-				highlighter.setTextFragmenter(new SimpleFragmenter(200));
+				highlighter.setTextFragmenter(new SimpleFragmenter(
+						summaryLength));
 				try {
-					result.setSummary(highlighter.getBestFragment(analyzer,
-							"myfield", result.getMainbody()));
+					// result.setSummary(highlighter.getBestFragment(analyzer,
+					// "myfield", result.getMainbody()));
+					String summary = highlighter.getBestFragment(analyzer,
+							"myfield", result.getMainbody());
+					if (summary != null && summary != "") {
+						summary = summary.substring(0,
+								Math.min(summary.length(), summaryLength));
+					}
+					if (summary == null || summary == "") {
+						if (result.getMainbody() != null) {
+							summary = result.getMainbody().substring(
+									0,
+									Math.min(summaryLength, result
+											.getMainbody().length()));
+						}
+					}
+					result.setSummary(summary);
 				} catch (IOException | InvalidTokenOffsetsException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();

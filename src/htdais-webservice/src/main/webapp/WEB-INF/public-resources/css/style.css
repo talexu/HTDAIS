@@ -1,0 +1,197 @@
+/* Custom Stylesheet */
+body, html {
+  background: none;
+      margin: 0;
+      -webkit-font-smoothing: antialiased;
+      text-align: center;
+}
+
+body, .main, html {
+  padding: 0;
+  width: 100%;
+  float: left;
+  color: black;
+  font-family: 'Roboto',Arial,sans-serif;
+  padding-bottom: 50px;
+}
+
+body .header{
+  color: #ecf0f1;
+  margin: 25px 0;
+}
+
+body {
+  background: #E5E8ED;
+}
+
+.menu a, .menu a:visited {
+  background: white;
+  color: #333;
+  font-weight: bold;
+  border-color: white;
+}
+
+.menu a:hover {
+  background: white;
+  border-color: white;
+}
+
+.menu a.active {
+  background: white;
+  border-color: white;
+}
+.main p {
+  color: #555;
+  font-size: 16px;
+  font-weight: 100;
+  padding: 0 20px;
+  margin: 10px auto;
+  max-width: 800px;
+}
+.nav-top {
+  background: black;
+}
+.nav-top a, .nav-top a:visited {
+  color: #ecf0f1;
+}
+
+/* ALL DEMO */
+h1 {
+  color: #555;
+  text-shadow: none;
+  font-family: 'Roboto',Arial,sans-serif;
+  font-size: 54px;
+}
+
+h1 span {
+  font-size: 44px;
+  display: block;
+}
+
+body .nav-top {
+  position: absolute; 
+  z-index: 11;
+  padding-top: 0;
+}
+
+body .nav-top span {
+  display: inline-block;
+}
+
+.adswrap {
+  margin-top: 55px;
+}
+
+.direction {
+  max-width: 500px;
+  margin: 50px auto;
+  background: rgba(0, 0, 0, 0.1);
+  padding: 20px;
+  border-radius: 50px;
+  font-weight: bold;
+}
+
+.menu, .header, .nav-top {
+  margin-bottom: 0;
+  position: relative;
+  z-index: 10;
+  padding-top: 5px;
+  padding-bottom: 0;
+}
+
+a, a:visited {
+  color: #333;
+}
+
+.tc_body .tc_card .tc_inner_card .tc_click_target{
+  padding: 45px 0;
+
+}
+
+.tip {
+  display: none;
+}
+
+.tc_modal {
+  width: 890px;
+}
+
+.tc_body .tc_card .tc_inner_card .tc_click_target {
+  font-size: 1.25em;
+  color: #888;
+  line-height: 25px;
+  font-weight: 300;
+  text-align: left;
+  padding: 30px 30px 30px 30px;
+}
+
+.tc_card:nth-child(1n+1) .tc_inner_card  {
+  border-bottom: 3px solid #1345ED;
+}
+
+.tc_card:nth-child(2n+2) .tc_inner_card  {
+  border-bottom: 3px solid #03A010;
+}
+
+.tc_card:nth-child(3n+3) .tc_inner_card  {
+  border-bottom: 3px solid #F8B00F;
+}
+
+.tc_card:nth-child(4n+4) .tc_inner_card {
+  border-bottom: 3px solid #DD4330;
+}
+
+
+.tc_back p {
+  font-family: Open Sans, sans-serif;
+  font-weight: 300;
+  padding: 50px 20px 20px;
+  margin: 0 0 10px 0;
+  color: #8A8C93;
+  color: #777;
+  letter-spacing: -1.2px;
+  font-size: 3.5625em;
+  line-height: 72px;
+  text-align: left;
+}
+.tc_inner_modal .tc_front {
+  min-height: 300px;
+}
+
+.tc_inner_modal .tc_front h1 {
+  margin-top: 20px;
+  font-size: 32px;
+  text-align: left;
+  margin-bottom: 35px;
+}
+
+.tc_inner_modal .tc_front p {
+  text-align: left;
+  min-height: 70px;
+  font-size: 24px;
+  line-height: 180%;
+}
+.tc_next, .tc_prev {
+  line-height: 90%;
+}
+.tc_inner_modal {
+  margin: 40px;
+}
+
+@media all and (max-width: 960px) {
+  body .tc_card {
+    width: 31% !important;
+  }
+}
+
+@media all and (max-width: 600px) {
+  body .tc_card {
+    width: 48% !important;
+  }
+}
+
+@media all and (max-width: 400px) {
+  body .tc_card {
+    width: 98% !important;
+  }
+}

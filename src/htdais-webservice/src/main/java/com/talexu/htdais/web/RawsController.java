@@ -14,6 +14,7 @@ import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
+import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.ResponseBody;
 
@@ -40,27 +41,37 @@ public class RawsController {
 	@Autowired
 	@Qualifier("newsRanker")
 	NewsRanker newsRanker;
-//	@Autowired
-//	@Qualifier("contentPool")
-//	ContentPool contentPool;
-	
-//	@RequestMapping("/")
-//	public String index() {
-//		logger.info("Greetings from Spring Boot!");
-//		return "index";
-//	}
-	
+
+	// @Autowired
+	// @Qualifier("contentPool")
+	// ContentPool contentPool;
+
 	@RequestMapping("/")
-	public @ResponseBody List<NewsView> index() {
+	public String index(Model model) {
+		logger.info("Greetings from Spring Boot!");
+		// model.addAttribute("newses", NewsView.getTestNewsViews());
+
 		if (quantizedNews.isEmpty()) {
 			trainByTestNews(prefix);
 		}
 		quantizedNews = newsRanker.execute(quantizedNews);
-		
-		return NewsView.getNewsViews(quantizedNews);
+		model.addAttribute("newses", NewsView.getNewsViews(quantizedNews));
+
+		return "index";
 	}
-	
+
+	// @RequestMapping("/")
+	// public @ResponseBody List<NewsView> index() {
+	// if (quantizedNews.isEmpty()) {
+	// trainByTestNews(prefix);
+	// }
+	// quantizedNews = newsRanker.execute(quantizedNews);
+	//
+	// return NewsView.getNewsViews(quantizedNews);
+	// }
+
 	Calendar latestCalendar = null;
+
 	private void trainByTestNews(String path) {
 
 		File file = new File(path);
@@ -90,8 +101,7 @@ public class RawsController {
 									if (calendar.after(latestCalendar)) {
 										latestCalendar = calendar;
 									}
-								}
-								else {
+								} else {
 									latestCalendar = calendar;
 								}
 
@@ -104,7 +114,7 @@ public class RawsController {
 								quantizedNew.setHtml(html);
 								quantizedNews.add(newsProcessor
 										.execute(quantizedNew));
-								
+
 								logger.debug("{}", quantizedNew.getTitle());
 
 							} catch (IOException e) {

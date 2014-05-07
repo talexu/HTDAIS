@@ -101,4 +101,21 @@ public class NewsView {
 
 		return newsViews;
 	}
+	
+	public static List<NewsView> getTestNewsViews(){
+		List<NewsView> newsViews = new LinkedList<>();
+		for (int i = 0; i < 20; i++) {
+			NewsView addedNewsView = new NewsView();
+			addedNewsView.setUri("http://www.baidu.com");
+			addedNewsView.setCalendar(Calendar.getInstance());
+			addedNewsView.setImage("http://image16-c.poco.cn/mypoco/myphoto/20140506/15/6497733820140506153623071_640.jpg");
+			addedNewsView.setRanking(0.5);
+			addedNewsView.setTitle("Title" + i);
+			addedNewsView.setSummary("Summary" + i);
+			addedNewsView.setMainbody("Mainbody" + i);
+			newsViews.add(addedNewsView);
+		}
+		
+		return newsViews;
+	}
 }
