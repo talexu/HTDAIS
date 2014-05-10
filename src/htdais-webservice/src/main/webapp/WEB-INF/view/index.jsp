@@ -33,22 +33,16 @@
 </head>
 <body>
 	<%-- <img src="<c:url value="/resources/image.jpg" />"> --%>
+	
 	<div class="wrapper">
             <div class="jcarousel-wrapper">
                 <div class="jcarousel">
                     <ul>
                     	<c:forEach var="carousel" items="${carousels}" varStatus="theCount">
 							<li>
-								<img src="${carousel.image}" width="600" height="400" alt="">
+								<a href="http://${carousel.uri}" target="_blank"><img src="${carousel.image}" width="600" height="400" alt=""></a>
 							</li>
 						</c:forEach>
-                    	
-                        <!-- <li><img src="http://image13-c.poco.cn/mypoco/myphoto/20121007/17/43847200201210071724162935008641488_000_640.jpg" width="600" height="400" alt=""></li>
-                        <li><img src="http://image13-c.poco.cn/mypoco/myphoto/20121007/17/43847200201210071724162935008641488_000_640.jpg" width="600" height="400" alt=""></li>
-                        <li><img src="http://image13-c.poco.cn/mypoco/myphoto/20121007/17/43847200201210071724162935008641488_000_640.jpg" width="600" height="400" alt=""></li>
-                        <li><img src="http://image13-c.poco.cn/mypoco/myphoto/20121007/17/43847200201210071724162935008641488_000_640.jpg" width="600" height="400" alt=""></li>
-                        <li><img src="http://image13-c.poco.cn/mypoco/myphoto/20121007/17/43847200201210071724162935008641488_000_640.jpg" width="600" height="400" alt=""></li>
-                        <li><img src="http://image13-c.poco.cn/mypoco/myphoto/20121007/17/43847200201210071724162935008641488_000_640.jpg" width="600" height="400" alt=""></li> -->
                     </ul>
                 </div>
 
