@@ -108,7 +108,7 @@ public class NewsView {
 			NewsView addedNewsView = new NewsView();
 			addedNewsView.setUri("http://www.baidu.com");
 			addedNewsView.setCalendar(Calendar.getInstance());
-			addedNewsView.setImage("http://image16-c.poco.cn/mypoco/myphoto/20140506/15/6497733820140506153623071_640.jpg");
+			addedNewsView.setImage("http://img1.gtimg.com/news/pics/hv1/246/201/1590/103441251.png");
 			addedNewsView.setRanking(0.5);
 			addedNewsView.setTitle("Title" + i);
 			addedNewsView.setSummary("Summary" + i);
@@ -117,5 +117,22 @@ public class NewsView {
 		}
 		
 		return newsViews;
+	}
+	
+	public static List<QuantizedNews> getTestQuantizedNews(){
+		List<QuantizedNews> quantizedNews = new LinkedList<>();
+		for (int i = 0; i < 20; i++) {
+			QuantizedNews addedNewsView = new QuantizedNews();
+			addedNewsView.setUri("http://www.baidu.com");
+			addedNewsView.setCalendar(Calendar.getInstance());
+			addedNewsView.setImage("http://img1.gtimg.com/news/pics/hv1/246/201/1590/103441251.png");
+			addedNewsView.setRanking(0.5);
+			addedNewsView.setTitle("Title" + i);
+			addedNewsView.setSummary("Summary" + i);
+			addedNewsView.setMainbody("Mainbody" + i);
+			quantizedNews.add(addedNewsView);
+		}
+		
+		return quantizedNews;
 	}
 }

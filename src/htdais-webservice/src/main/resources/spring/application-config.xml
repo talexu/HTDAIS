@@ -55,6 +55,8 @@
 		<property name="distributionProcessor" ref="twoDimentionalStandardNormalDistribution"/>
 		<property name="clusterMatcher" ref="clusterProcessor"/>
 	</bean>
+	<bean id="carouselNewsRanker" class="com.talexu.htdais.service.ranking.CarouselNewsRanker">
+	</bean>
 	
 	<alias name="cleanHtmlExtrator" alias="htmlExtrator"/>
 	<alias name="cleanProcessor" alias="newsProcessor"/>

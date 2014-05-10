@@ -195,3 +195,9 @@ a, a:visited {
     width: 98% !important;
   }
 }
+
+.wrapper {
+    max-width: 620px;
+    padding: 0 20px 0px 20px;
+    margin: auto;
+}

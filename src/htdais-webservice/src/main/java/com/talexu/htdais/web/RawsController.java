@@ -16,7 +16,6 @@ import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Controller;
 import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.ResponseBody;
 
 import com.talexu.htdais.domain.NewsView;
 import com.talexu.htdais.domain.QuantizedNews;
@@ -41,6 +40,9 @@ public class RawsController {
 	@Autowired
 	@Qualifier("newsRanker")
 	NewsRanker newsRanker;
+	@Autowired
+	@Qualifier("carouselNewsRanker")
+	NewsRanker carouselNewsRanker;
 
 	// @Autowired
 	// @Qualifier("contentPool")
@@ -50,12 +52,17 @@ public class RawsController {
 	public String index(Model model) {
 		logger.info("Greetings from Spring Boot!");
 		// model.addAttribute("newses", NewsView.getTestNewsViews());
+		// model.addAttribute("carousels", NewsView
+		// .getNewsViews(carouselNewsRanker.execute(NewsView
+		// .getTestQuantizedNews())));
 
 		if (quantizedNews.isEmpty()) {
 			trainByTestNews(prefix);
 		}
 		quantizedNews = newsRanker.execute(quantizedNews);
 		model.addAttribute("newses", NewsView.getNewsViews(quantizedNews));
+		model.addAttribute("carousels", NewsView
+				.getNewsViews(carouselNewsRanker.execute(quantizedNews)));
 
 		return "index";
 	}
