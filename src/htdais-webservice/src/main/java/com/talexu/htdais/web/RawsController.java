@@ -55,14 +55,15 @@ public class RawsController {
 		// model.addAttribute("carousels", NewsView
 		// .getNewsViews(carouselNewsRanker.execute(NewsView
 		// .getTestQuantizedNews())));
+		model.addAttribute("carousels", NewsView.getTestCarousel());
 
 		if (quantizedNews.isEmpty()) {
 			trainByTestNews(prefix);
 		}
 		quantizedNews = newsRanker.execute(quantizedNews);
 		model.addAttribute("newses", NewsView.getNewsViews(quantizedNews));
-		model.addAttribute("carousels", NewsView
-				.getNewsViews(carouselNewsRanker.execute(quantizedNews)));
+//		model.addAttribute("carousels", NewsView
+//				.getNewsViews(carouselNewsRanker.execute(quantizedNews)));
 
 		return "index";
 	}

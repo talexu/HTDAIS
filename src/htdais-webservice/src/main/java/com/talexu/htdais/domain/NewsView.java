@@ -135,4 +135,50 @@ public class NewsView {
 		
 		return quantizedNews;
 	}
+	
+	public static List<NewsView> getTestCarousel(){
+		List<NewsView> newsViews = new LinkedList<>();
+		
+		NewsView addedNewsView = new NewsView();
+		addedNewsView.setUri("news.163.com/14/0510/22/9RTRK5M200014JB5.html");
+		addedNewsView.setCalendar(Calendar.getInstance());
+		addedNewsView.setImage("http://img1.cache.netease.com/catchpic/7/78/78D94C231C10C04753C997F546BAAFE9.jpg");
+		addedNewsView.setRanking(0.5);
+		addedNewsView.setTitle("习近平：老老实实干事 清清白白为官_网易新闻中心");
+		newsViews.add(addedNewsView);
+		
+		addedNewsView = new NewsView();
+		addedNewsView.setUri("news.163.com/14/0511/15/9RVNJG470001124J.html");
+		addedNewsView.setCalendar(Calendar.getInstance());
+		addedNewsView.setImage("http://img3.cache.netease.com/photo/0001/2014-05-11/600x450_9RVP6ANI00AN0001.jpg");
+		addedNewsView.setRanking(0.5);
+		addedNewsView.setTitle("深圳降2008年来最强暴雨 大范围严重积涝_网易新闻中心");
+		newsViews.add(addedNewsView);
+		
+		addedNewsView = new NewsView();
+		addedNewsView.setUri("news.163.com/14/0511/08/9RUVV43300014JB6.html#p=9RVS3UIN00AO0001");
+		addedNewsView.setCalendar(Calendar.getInstance());
+		addedNewsView.setImage("http://img3.cache.netease.com/photo/0001/2014-05-11/600x450_9RVS3UIN00AO0001.jpg");
+		addedNewsView.setRanking(0.5);
+		addedNewsView.setTitle("乌克兰东部两州今日公投 或建新俄罗斯_网易新闻中心");
+		newsViews.add(addedNewsView);
+		
+		addedNewsView = new NewsView();
+		addedNewsView.setUri("news.163.com/14/0511/18/9S01QB4800014JB5.html");
+		addedNewsView.setCalendar(Calendar.getInstance());
+		addedNewsView.setImage("http://img3.cache.netease.com/photo/0001/2014-05-10/600x450_9RSBLCAG00AO0001.jpg");
+		addedNewsView.setRanking(0.5);
+		addedNewsView.setTitle("菲方寻海南方言翻译审中国渔民 最高或判刑20年_网易新闻中心");
+		newsViews.add(addedNewsView);
+		
+		addedNewsView = new NewsView();
+		addedNewsView.setUri("news.163.com/14/0511/11/9RVAHF5E0001124J.html");
+		addedNewsView.setCalendar(Calendar.getInstance());
+		addedNewsView.setImage("http://img4.cache.netease.com/photo/0001/2014-05-11/600x450_9RVHHEPK00AN0001.jpg");
+		addedNewsView.setRanking(0.5);
+		addedNewsView.setTitle("青岛一工厂挡土墙因暴雨倒塌 18人遇难(图)_网易新闻中心");
+		newsViews.add(addedNewsView);
+		
+		return newsViews;
+	}
 }
