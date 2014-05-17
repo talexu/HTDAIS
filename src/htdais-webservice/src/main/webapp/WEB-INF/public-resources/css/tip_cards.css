@@ -11,7 +11,7 @@
   animation-duration: 1s;
   -webkit-animation-fill-mode: both;
   animation-fill-mode: both;
-  height: 360px;
+  /* height: 360px; */
 }
 
 .tc_inner_card .tc_shadow {
